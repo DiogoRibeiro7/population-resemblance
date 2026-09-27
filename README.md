@@ -33,6 +33,9 @@ The package also supports direct Monte Carlo comparison of PRS and PSI on identi
 The package also includes a discrete Kolmogorov-Smirnov benchmark with Monte Carlo
 calibration under the categorical reference distribution.
 
+A unified reporting API can now evaluate PRS, PSI, and discrete KS from the same observed
+count vector.
+
 Future work will add further benchmark drift measures and extensions such as two-sample
 and cost-sensitive monitoring.
 
@@ -148,6 +151,29 @@ print(result.status)
 
 The default status convention mirrors the paper's comparison: p-values below 1% are red,
 above 10% are green, and intermediate values are amber.
+
+## Unified monitoring report
+
+For practical monitoring workflows, all three methods can be evaluated from the same
+observed count vector.
+
+```python
+from population_resemblance import assess_population_monitoring
+
+report = assess_population_monitoring(
+    counts=[35, 40, 45, 45, 47, 50, 55, 58, 60, 65],
+    reference=[0.10] * 10,
+    ks_simulations=10_000,
+    ks_seed=123,
+)
+
+print(report.prs)
+print(report.psi)
+print(report.ks)
+```
+
+PRS remains the tolerance-based decision framework. PSI and discrete KS are reported as
+benchmarks because their null hypotheses and decision rules are different.
 
 ## Development
 

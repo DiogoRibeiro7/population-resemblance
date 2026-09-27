@@ -23,6 +23,11 @@ from population_resemblance.ks import (
 )
 from population_resemblance.prs import population_resemblance_statistic
 from population_resemblance.psi import lewis_psi_status, population_stability_index
+from population_resemblance.reporting import (
+    PSIAssessment,
+    PopulationMonitoringReport,
+    assess_population_monitoring,
+)
 from population_resemblance.result import (
     CriticalValues,
     DecisionRegion,
@@ -40,9 +45,12 @@ __all__ = [
     "DecisionRegion",
     "DiscreteKSTestResult",
     "PRSPSIComparisonResult",
+    "PSIAssessment",
+    "PopulationMonitoringReport",
     "PopulationResemblanceResult",
     "SimulationResult",
     "assess_population_counts",
+    "assess_population_monitoring",
     "assess_population_resemblance",
     "counts_to_proportions",
     "critical_values",
