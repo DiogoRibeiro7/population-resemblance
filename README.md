@@ -16,9 +16,31 @@ The initial implementation provides the core statistic
 \frac{(\hat p_j - p_{0j})^2}{p_{0j}}.
 \]
 
-Future work will add the paper's full \(\delta\)-resemblance decision framework,
-sample-size-aware critical values, simulation tooling, benchmark drift measures, and
-extensions such as two-sample and cost-sensitive monitoring.
+The package now implements the paper's \(\delta\)-resemblance decision framework,
+including sample-size-aware tolerance calibration, least-favourable non-centrality,
+non-central chi-square critical values, and the three PRS decision regions.
+
+Future work will add simulation tooling, benchmark drift measures, and extensions such as
+two-sample and cost-sensitive monitoring.
+
+## Quick start
+
+```python
+from population_resemblance import assess_population_resemblance
+
+result = assess_population_resemblance(
+    observed=[0.40, 0.35, 0.25],
+    reference=[0.50, 0.30, 0.20],
+    sample_size=1_000,
+)
+
+print(result.statistic)
+print(result.region)
+print(result.critical_values)
+```
+
+If a domain-specific tolerance is available, pass `delta=` explicitly. Otherwise the
+package uses the sample-size-aware recommendation from the source methodology.
 
 ## Development
 
