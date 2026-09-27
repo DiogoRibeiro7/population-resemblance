@@ -20,8 +20,11 @@ The package now implements the paper's \(\delta\)-resemblance decision framework
 including sample-size-aware tolerance calibration, least-favourable non-centrality,
 non-central chi-square critical values, and the three PRS decision regions.
 
-Future work will add simulation tooling, benchmark drift measures, and extensions such as
-two-sample and cost-sensitive monitoring.
+The package also includes Monte Carlo tooling for studying the operating characteristics
+of the PRS decision regions under controlled population shifts.
+
+Future work will add benchmark drift measures and extensions such as two-sample and
+cost-sensitive monitoring.
 
 ## Quick start
 
@@ -56,6 +59,37 @@ result = assess_population_resemblance(
 
 If a domain-specific tolerance is available, pass `delta=` explicitly. Otherwise the
 package uses the sample-size-aware recommendation from the source methodology.
+
+## Simulation
+
+The simulation API can estimate how often a specified current population is classified into
+each PRS decision region.
+
+```python
+from population_resemblance import (
+    recommended_delta,
+    simulate_region_probabilities,
+    symmetric_category_shift,
+)
+
+reference = [0.2] * 5
+delta = recommended_delta(reference, sample_size=50, c=0.7)
+current = symmetric_category_shift(reference, delta)
+
+result = simulate_region_probabilities(
+    current=current,
+    reference=reference,
+    sample_size=50,
+    simulations=30_000,
+    seed=123,
+    delta=delta,
+)
+
+print(result.probabilities)
+```
+
+This is useful for sensitivity analysis, calibration checks, and reproducing the simulation
+logic used to validate the original PRS framework.
 
 ## Development
 
