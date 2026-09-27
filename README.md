@@ -28,6 +28,8 @@ for sample size in the same way.
 Monte Carlo tooling is available for studying the operating characteristics of the PRS
 decision regions under controlled population shifts.
 
+The package also supports direct Monte Carlo comparison of PRS and PSI on identical samples.
+
 Future work will add additional benchmark drift measures and extensions such as two-sample
 and cost-sensitive monitoring.
 
@@ -95,6 +97,30 @@ print(result.probabilities)
 
 This is useful for sensitivity analysis, calibration checks, and reproducing the simulation
 logic used to validate the original PRS framework.
+
+## PRS versus PSI
+
+The comparison API applies both methods to the same Monte Carlo samples, making it possible
+to study how the sample-size-aware PRS framework behaves relative to the traditional fixed
+PSI thresholds.
+
+```python
+from population_resemblance import simulate_prs_psi_comparison
+
+result = simulate_prs_psi_comparison(
+    current=[0.17, 0.17, 0.20, 0.23, 0.23],
+    reference=[0.20] * 5,
+    sample_size=500,
+    simulations=10_000,
+    seed=123,
+)
+
+print(result.prs)
+print(result.psi)
+```
+
+This comparison is descriptive: PRS and PSI use different decision rules, so matching
+classification probabilities are neither expected nor required.
 
 ## Development
 

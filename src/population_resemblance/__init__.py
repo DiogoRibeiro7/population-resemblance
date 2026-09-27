@@ -1,5 +1,10 @@
 """Population resemblance statistics for categorical distribution monitoring."""
 
+from population_resemblance.comparison import (
+    ClassificationProbabilities,
+    PRSPSIComparisonResult,
+    simulate_prs_psi_comparison,
+)
 from population_resemblance.counts import (
     assess_population_counts,
     counts_to_proportions,
@@ -24,8 +29,10 @@ from population_resemblance.simulation import (
 )
 
 __all__ = [
+    "ClassificationProbabilities",
     "CriticalValues",
     "DecisionRegion",
+    "PRSPSIComparisonResult",
     "PopulationResemblanceResult",
     "SimulationResult",
     "assess_population_counts",
@@ -37,6 +44,7 @@ __all__ = [
     "population_resemblance_statistic",
     "population_stability_index",
     "recommended_delta",
+    "simulate_prs_psi_comparison",
     "simulate_region_probabilities",
     "symmetric_category_shift",
 ]
