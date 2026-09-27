@@ -30,7 +30,10 @@ decision regions under controlled population shifts.
 
 The package also supports direct Monte Carlo comparison of PRS and PSI on identical samples.
 
-Future work will add additional benchmark drift measures and extensions such as two-sample
+The package also includes a discrete Kolmogorov-Smirnov benchmark with Monte Carlo
+calibration under the categorical reference distribution.
+
+Future work will add further benchmark drift measures and extensions such as two-sample
 and cost-sensitive monitoring.
 
 ## Quick start
@@ -121,6 +124,30 @@ print(result.psi)
 
 This comparison is descriptive: PRS and PSI use different decision rules, so matching
 classification probabilities are neither expected nor required.
+
+## Discrete KS benchmark
+
+The package also exposes a discrete Kolmogorov-Smirnov benchmark. Because the discrete
+KS statistic is not distribution-free with respect to the reference probabilities, the
+package calibrates its p-value by Monte Carlo simulation under the multinomial reference.
+
+```python
+from population_resemblance import discrete_ks_test_counts
+
+result = discrete_ks_test_counts(
+    counts=[35, 40, 45, 45, 47, 50, 55, 58, 60, 65],
+    reference=[0.10] * 10,
+    simulations=10_000,
+    seed=123,
+)
+
+print(result.statistic)
+print(result.p_value)
+print(result.status)
+```
+
+The default status convention mirrors the paper's comparison: p-values below 1% are red,
+above 10% are green, and intermediate values are amber.
 
 ## Development
 
