@@ -11,6 +11,7 @@ from population_resemblance.framework import (
     recommended_delta,
 )
 from population_resemblance.prs import population_resemblance_statistic
+from population_resemblance.psi import lewis_psi_status, population_stability_index
 from population_resemblance.result import (
     CriticalValues,
     DecisionRegion,
@@ -25,7 +26,9 @@ __all__ = [
     "assess_population_resemblance",
     "counts_to_proportions",
     "critical_values",
+    "lewis_psi_status",
     "maximum_noncentrality",
     "population_resemblance_statistic",
+    "population_stability_index",
     "recommended_delta",
 ]

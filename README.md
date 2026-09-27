@@ -20,8 +20,13 @@ The package now implements the paper's \(\delta\)-resemblance decision framework
 including sample-size-aware tolerance calibration, least-favourable non-centrality,
 non-central chi-square critical values, and the three PRS decision regions.
 
-Future work will add simulation tooling, benchmark drift measures, and extensions such as
-two-sample and cost-sensitive monitoring.
+The package also includes the traditional Population Stability Index (PSI) and Lewis
+threshold classification as explicit benchmarks. They are kept separate from the PRS
+decision framework because they answer a different monitoring question and do not account
+for sample size in the same way.
+
+Future work will add simulation tooling, additional benchmark drift measures, and
+extensions such as two-sample and cost-sensitive monitoring.
 
 ## Quick start
 
