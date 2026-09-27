@@ -1,5 +1,9 @@
 """Population resemblance statistics for categorical distribution monitoring."""
 
+from population_resemblance.counts import (
+    assess_population_counts,
+    counts_to_proportions,
+)
 from population_resemblance.framework import (
     assess_population_resemblance,
     critical_values,
@@ -17,7 +21,9 @@ __all__ = [
     "CriticalValues",
     "DecisionRegion",
     "PopulationResemblanceResult",
+    "assess_population_counts",
     "assess_population_resemblance",
+    "counts_to_proportions",
     "critical_values",
     "maximum_noncentrality",
     "population_resemblance_statistic",
