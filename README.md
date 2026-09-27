@@ -20,11 +20,16 @@ The package now implements the paper's \(\delta\)-resemblance decision framework
 including sample-size-aware tolerance calibration, least-favourable non-centrality,
 non-central chi-square critical values, and the three PRS decision regions.
 
-The package also includes Monte Carlo tooling for studying the operating characteristics
-of the PRS decision regions under controlled population shifts.
+The package also includes the traditional Population Stability Index (PSI) and Lewis
+threshold classification as explicit benchmarks. They are kept separate from the PRS
+decision framework because they answer a different monitoring question and do not account
+for sample size in the same way.
 
-Future work will add benchmark drift measures and extensions such as two-sample and
-cost-sensitive monitoring.
+Monte Carlo tooling is available for studying the operating characteristics of the PRS
+decision regions under controlled population shifts.
+
+Future work will add additional benchmark drift measures and extensions such as two-sample
+and cost-sensitive monitoring.
 
 ## Quick start
 
