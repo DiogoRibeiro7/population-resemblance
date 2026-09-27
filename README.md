@@ -175,6 +175,34 @@ print(report.ks)
 PRS remains the tolerance-based decision framework. PSI and discrete KS are reported as
 benchmarks because their null hypotheses and decision rules are different.
 
+## Temporal monitoring
+
+Repeated population snapshots can be assessed against the same fixed reference distribution.
+
+```python
+from population_resemblance import assess_temporal_monitoring
+
+series = assess_temporal_monitoring(
+    counts_by_period=[
+        [50, 30, 20],
+        [45, 35, 20],
+        [40, 35, 25],
+    ],
+    reference=[0.50, 0.30, 0.20],
+    labels=["2026-Q1", "2026-Q2", "2026-Q3"],
+    ks_simulations=5_000,
+    ks_seed=123,
+)
+
+print(series.labels)
+print(series.prs_statistics)
+print(series.psi_statistics)
+print(series.ks_statistics)
+```
+
+The reference distribution remains fixed while each period is assessed independently.
+This makes the API suitable for recurring model- or population-monitoring workflows.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
