@@ -16,11 +16,17 @@ from population_resemblance.result import (
     DecisionRegion,
     PopulationResemblanceResult,
 )
+from population_resemblance.simulation import (
+    SimulationResult,
+    simulate_region_probabilities,
+    symmetric_category_shift,
+)
 
 __all__ = [
     "CriticalValues",
     "DecisionRegion",
     "PopulationResemblanceResult",
+    "SimulationResult",
     "assess_population_counts",
     "assess_population_resemblance",
     "counts_to_proportions",
@@ -28,4 +34,6 @@ __all__ = [
     "maximum_noncentrality",
     "population_resemblance_statistic",
     "recommended_delta",
+    "simulate_region_probabilities",
+    "symmetric_category_shift",
 ]
