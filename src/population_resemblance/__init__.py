@@ -15,6 +15,12 @@ from population_resemblance.framework import (
     maximum_noncentrality,
     recommended_delta,
 )
+from population_resemblance.ks import (
+    DiscreteKSTestResult,
+    discrete_ks_statistic,
+    discrete_ks_status,
+    discrete_ks_test_counts,
+)
 from population_resemblance.prs import population_resemblance_statistic
 from population_resemblance.psi import lewis_psi_status, population_stability_index
 from population_resemblance.result import (
@@ -32,6 +38,7 @@ __all__ = [
     "ClassificationProbabilities",
     "CriticalValues",
     "DecisionRegion",
+    "DiscreteKSTestResult",
     "PRSPSIComparisonResult",
     "PopulationResemblanceResult",
     "SimulationResult",
@@ -39,6 +46,9 @@ __all__ = [
     "assess_population_resemblance",
     "counts_to_proportions",
     "critical_values",
+    "discrete_ks_statistic",
+    "discrete_ks_status",
+    "discrete_ks_test_counts",
     "lewis_psi_status",
     "maximum_noncentrality",
     "population_resemblance_statistic",
