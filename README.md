@@ -25,6 +25,25 @@ two-sample and cost-sensitive monitoring.
 
 ## Quick start
 
+For real observed samples, the count-based API is preferred because it derives the sample
+size directly from the data.
+
+```python
+from population_resemblance import assess_population_counts
+
+result = assess_population_counts(
+    counts=[400, 350, 250],
+    reference=[0.50, 0.30, 0.20],
+)
+
+print(result.statistic)
+print(result.region)
+print(result.critical_values)
+```
+
+A probability-based API is also available when empirical proportions and the sample size
+are already known explicitly.
+
 ```python
 from population_resemblance import assess_population_resemblance
 
@@ -33,10 +52,6 @@ result = assess_population_resemblance(
     reference=[0.50, 0.30, 0.20],
     sample_size=1_000,
 )
-
-print(result.statistic)
-print(result.region)
-print(result.critical_values)
 ```
 
 If a domain-specific tolerance is available, pass `delta=` explicitly. Otherwise the
