@@ -8,8 +8,15 @@ import numpy as np
 import numpy.typing as npt
 from scipy.stats import ncx2
 
-from population_resemblance.prs import _as_probability_vector, population_resemblance_statistic
-from population_resemblance.result import CriticalValues, DecisionRegion, PopulationResemblanceResult
+from population_resemblance.prs import (
+    _as_probability_vector,
+    population_resemblance_statistic,
+)
+from population_resemblance.result import (
+    CriticalValues,
+    DecisionRegion,
+    PopulationResemblanceResult,
+)
 
 
 def _validate_sample_size(sample_size: int) -> None:
