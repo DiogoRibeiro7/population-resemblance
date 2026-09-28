@@ -1,0 +1,89 @@
+site_name: Population Resemblance
+site_description: Statistically principled monitoring of categorical population and distribution shifts.
+site_url: https://diogoribeiro7.github.io/population-resemblance/
+repo_url: https://github.com/DiogoRibeiro7/population-resemblance
+repo_name: DiogoRibeiro7/population-resemblance
+strict: true
+
+theme:
+  name: material
+
+  icon:
+    repo: fontawesome/brands/github
+
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - User guide: user-guide.md
+  - Theory: theory.md
+  - Simulation: simulation.md
+  - API reference: api.md
+  - Development: development.md
+  - Releases: releases.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            show_source: false
+            show_root_heading: true
+            show_signature_annotations: true
+            separate_signature: true
+            merge_init_into_class: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: Copyright &copy; 2026 Diogo Ribeiro

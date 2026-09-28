@@ -34,3 +34,6 @@ jobs:
 
       - name: Tests
         run: poetry run pytest --cov=population_resemblance --cov-report=term-missing
+
+      - name: Documentation
+        run: poetry run mkdocs build --strict
