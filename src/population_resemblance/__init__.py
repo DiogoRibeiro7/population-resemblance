@@ -1,5 +1,6 @@
 """Population resemblance statistics for categorical distribution monitoring."""
 
+from population_resemblance.calibration import CalibrationDiagnostics, evaluate_calibration
 from population_resemblance.comparison import (
     ClassificationProbabilities,
     PRSPSIComparisonResult,
@@ -51,6 +52,7 @@ from population_resemblance.temporal import (
 )
 
 __all__ = [
+    "CalibrationDiagnostics",
     "CategoryContribution",
     "ClassificationProbabilities",
     "CriticalValues",
@@ -73,6 +75,7 @@ __all__ = [
     "discrete_ks_statistic",
     "discrete_ks_status",
     "discrete_ks_test_counts",
+    "evaluate_calibration",
     "lewis_psi_status",
     "maximum_noncentrality",
     "population_count_diagnostics",
