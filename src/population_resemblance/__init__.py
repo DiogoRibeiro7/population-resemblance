@@ -65,6 +65,11 @@ from population_resemblance.simulation import (
     simulate_region_probabilities,
     symmetric_category_shift,
 )
+from population_resemblance.uncertainty import (
+    ProbabilityInterval,
+    SimulationUncertainty,
+    simulation_uncertainty,
+)
 from population_resemblance.temporal import (
     TemporalMonitoringPoint,
     TemporalMonitoringSeries,
@@ -87,11 +92,13 @@ __all__ = [
     "PRSPSIComparisonResult",
     "PSIAssessment",
     "PopulationMonitor",
+    "ProbabilityInterval",
     "PopulationMonitoringReport",
     "PopulationResemblanceResult",
     "ReferenceCountMonitoringReport",
     "ResemblanceDiagnostics",
     "SimulationResult",
+    "SimulationUncertainty",
     "TemporalMonitoringPoint",
     "TemporalMonitoringSeries",
     "assess_against_reference_counts",
@@ -116,6 +123,7 @@ __all__ = [
     "simulate_operating_characteristic_curve",
     "simulate_prs_psi_comparison",
     "simulate_region_probabilities",
+    "simulation_uncertainty",
     "source_deviation_grid",
     "sweep_calibration_parameters",
     "symmetric_category_shift",
