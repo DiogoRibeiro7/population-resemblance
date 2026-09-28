@@ -45,19 +45,25 @@ def test_default_labels_are_generated() -> None:
 
 def test_temporal_monitoring_is_reproducible_with_base_seed() -> None:
     """A fixed base seed should reproduce the entire temporal result."""
-    kwargs = {
-        "counts_by_period": [
-            [20, 20, 10],
-            [18, 22, 10],
-            [15, 25, 10],
-        ],
-        "reference": [0.4, 0.4, 0.2],
-        "ks_simulations": 1_000,
-        "ks_seed": 100,
-    }
+    counts_by_period = [
+        [20, 20, 10],
+        [18, 22, 10],
+        [15, 25, 10],
+    ]
+    reference = [0.4, 0.4, 0.2]
 
-    first = assess_temporal_monitoring(**kwargs)
-    second = assess_temporal_monitoring(**kwargs)
+    first = assess_temporal_monitoring(
+        counts_by_period=counts_by_period,
+        reference=reference,
+        ks_simulations=1_000,
+        ks_seed=100,
+    )
+    second = assess_temporal_monitoring(
+        counts_by_period=counts_by_period,
+        reference=reference,
+        ks_simulations=1_000,
+        ks_seed=100,
+    )
 
     assert first == second
 

@@ -52,7 +52,7 @@ def population_resemblance_statistic(
     observed: Sequence[float] | npt.NDArray[np.floating],
     reference: Sequence[float] | npt.NDArray[np.floating],
 ) -> float:
-    """Compute the Population Resemblance Statistic (PRS).
+    r"""Compute the Population Resemblance Statistic (PRS).
 
     The statistic is
 

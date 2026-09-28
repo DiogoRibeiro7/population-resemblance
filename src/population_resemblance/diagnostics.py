@@ -91,10 +91,11 @@ def population_resemblance_diagnostics(
     contributions = np.square(shifts) / reference_array
     statistic = float(np.sum(contributions))
 
-    if statistic == 0.0:
-        shares = np.zeros_like(contributions)
-    else:
-        shares = contributions / statistic
+    shares = (
+        np.zeros_like(contributions)
+        if statistic == 0.0
+        else contributions / statistic
+    )
 
     categories = tuple(
         CategoryContribution(

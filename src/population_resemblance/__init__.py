@@ -46,8 +46,8 @@ from population_resemblance.reference import (
     assess_against_reference_counts,
 )
 from population_resemblance.reporting import (
-    PSIAssessment,
     PopulationMonitoringReport,
+    PSIAssessment,
     assess_population_monitoring,
 )
 from population_resemblance.result import (
@@ -55,30 +55,30 @@ from population_resemblance.result import (
     DecisionRegion,
     PopulationResemblanceResult,
 )
-from population_resemblance.serialization import (
-    monitoring_report_to_dict,
-    records_column,
-    temporal_series_to_records,
-)
 from population_resemblance.sensitivity import (
     CalibrationSensitivityGrid,
     CalibrationSensitivityPoint,
     sweep_calibration_parameters,
+)
+from population_resemblance.serialization import (
+    monitoring_report_to_dict,
+    records_column,
+    temporal_series_to_records,
 )
 from population_resemblance.simulation import (
     SimulationResult,
     simulate_region_probabilities,
     symmetric_category_shift,
 )
-from population_resemblance.uncertainty import (
-    ProbabilityInterval,
-    SimulationUncertainty,
-    simulation_uncertainty,
-)
 from population_resemblance.temporal import (
     TemporalMonitoringPoint,
     TemporalMonitoringSeries,
     assess_temporal_monitoring,
+)
+from population_resemblance.uncertainty import (
+    ProbabilityInterval,
+    SimulationUncertainty,
+    simulation_uncertainty,
 )
 
 __all__ = [

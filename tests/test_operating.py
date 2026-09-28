@@ -49,16 +49,23 @@ def test_each_operating_point_is_a_complete_probability_partition() -> None:
 
 def test_operating_curve_is_reproducible() -> None:
     """A fixed base seed should reproduce the complete curve."""
-    kwargs = {
-        "reference": [0.2] * 5,
-        "sample_size": 50,
-        "delta_multiples": [0.0, 1.0, 2.0],
-        "simulations": 1_000,
-        "seed": 123,
-    }
+    reference = [0.2] * 5
+    delta_multiples = [0.0, 1.0, 2.0]
 
-    first = simulate_operating_characteristic_curve(**kwargs)
-    second = simulate_operating_characteristic_curve(**kwargs)
+    first = simulate_operating_characteristic_curve(
+        reference=reference,
+        sample_size=50,
+        delta_multiples=delta_multiples,
+        simulations=1_000,
+        seed=123,
+    )
+    second = simulate_operating_characteristic_curve(
+        reference=reference,
+        sample_size=50,
+        delta_multiples=delta_multiples,
+        simulations=1_000,
+        seed=123,
+    )
 
     assert first == second
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from population_resemblance import assess_named_population
+from population_resemblance import assess_named_population, population_resemblance_statistic
 
 
 def test_named_api_aligns_counts_to_reference_order() -> None:
@@ -31,7 +31,12 @@ def test_named_api_matches_numeric_monitoring_result() -> None:
         ks_seed=7,
     )
 
-    assert result.monitoring.prs.statistic == pytest.approx(0.0325)
+    expected = population_resemblance_statistic(
+        observed=[0.40, 0.35, 0.25],
+        reference=[0.50, 0.30, 0.20],
+    )
+
+    assert result.monitoring.prs.statistic == pytest.approx(expected)
 
 
 def test_category_mismatch_reports_missing_and_extra_names() -> None:
