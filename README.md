@@ -395,6 +395,35 @@ A `NamedPopulationMonitor` provides the same pattern for named categories. These
 objects do not introduce new statistics; they package the existing validated configuration
 for repeated use.
 
+## Monte Carlo uncertainty
+
+Simulation-based region probabilities can be accompanied by Wilson confidence intervals
+that quantify Monte Carlo error.
+
+```python
+from population_resemblance import (
+    simulate_region_probabilities,
+    simulation_uncertainty,
+)
+
+result = simulate_region_probabilities(
+    current=[0.40, 0.35, 0.25],
+    reference=[0.50, 0.30, 0.20],
+    sample_size=250,
+    simulations=10_000,
+    seed=123,
+)
+
+uncertainty = simulation_uncertainty(result, confidence_level=0.95)
+
+print(uncertainty.r1)
+print(uncertainty.r2)
+print(uncertainty.r3)
+```
+
+These intervals describe simulation uncertainty only. They are not confidence intervals
+for the PRS parameters or for the underlying population shift.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
