@@ -55,6 +55,11 @@ from population_resemblance.result import (
     DecisionRegion,
     PopulationResemblanceResult,
 )
+from population_resemblance.serialization import (
+    monitoring_report_to_dict,
+    records_column,
+    temporal_series_to_records,
+)
 from population_resemblance.sensitivity import (
     CalibrationSensitivityGrid,
     CalibrationSensitivityPoint,
@@ -115,16 +120,19 @@ __all__ = [
     "evaluate_calibration",
     "lewis_psi_status",
     "maximum_noncentrality",
+    "monitoring_report_to_dict",
     "population_count_diagnostics",
     "population_resemblance_diagnostics",
     "population_resemblance_statistic",
     "population_stability_index",
     "recommended_delta",
+    "records_column",
     "simulate_operating_characteristic_curve",
     "simulate_prs_psi_comparison",
     "simulate_region_probabilities",
     "simulation_uncertainty",
     "source_deviation_grid",
     "sweep_calibration_parameters",
+    "temporal_series_to_records",
     "symmetric_category_shift",
 ]
