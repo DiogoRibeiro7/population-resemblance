@@ -284,6 +284,31 @@ This is still the paper's one-sample conditional formulation: the empirical base
 converted to probabilities and then treated as fixed. It is not a two-sample PRS test and
 does not propagate uncertainty from the reference sample into the critical values.
 
+## Operating-characteristic curves
+
+The package can reproduce the simulation design used in the paper by evaluating PRS
+classification probabilities across a sequence of deviations measured in multiples of
+\(\delta\).
+
+```python
+from population_resemblance import simulate_operating_characteristic_curve
+
+curve = simulate_operating_characteristic_curve(
+    reference=[0.2] * 5,
+    sample_size=50,
+    simulations=10_000,
+    seed=123,
+)
+
+print(curve.delta_multiples)
+print(curve.r1_probabilities)
+print(curve.r2_probabilities)
+print(curve.r3_probabilities)
+```
+
+By default, the curve uses 30 deviation values from zero to \((3M + 2)\delta\), matching
+the range described in the source simulation study.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
