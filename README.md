@@ -333,6 +333,35 @@ print(len(grid.infeasible_points))
 Invalid parameter combinations are retained with their error message instead of aborting
 the full sweep. This makes structural constraints and sensitivity trade-offs visible.
 
+## Named categories
+
+For application code, category names can be used directly rather than relying on positional
+arrays. The reference mapping defines the canonical category order.
+
+```python
+from population_resemblance import assess_named_population
+
+result = assess_named_population(
+    counts={
+        "high": 25,
+        "low": 40,
+        "medium": 35,
+    },
+    reference={
+        "low": 0.50,
+        "medium": 0.30,
+        "high": 0.20,
+    },
+)
+
+print(result.categories)
+print(result.counts)
+print(result.monitoring.prs)
+```
+
+The API requires the current and reference mappings to contain exactly the same category
+names, preventing silent errors caused by inconsistent category ordering.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
