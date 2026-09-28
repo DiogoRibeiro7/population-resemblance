@@ -424,6 +424,31 @@ print(uncertainty.r3)
 These intervals describe simulation uncertainty only. They are not confidence intervals
 for the PRS parameters or for the underlying population shift.
 
+## Serialization
+
+Monitoring outputs can be converted to JSON-safe dictionaries or flat temporal records for
+APIs, logs, persistence, and tabular analysis.
+
+```python
+import json
+
+from population_resemblance import (
+    assess_population_monitoring,
+    monitoring_report_to_dict,
+)
+
+report = assess_population_monitoring(
+    counts=[40, 35, 25],
+    reference=[0.50, 0.30, 0.20],
+)
+
+payload = monitoring_report_to_dict(report)
+print(json.dumps(payload))
+```
+
+Temporal monitoring series can likewise be converted to one flat record per period using
+`temporal_series_to_records()`.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
