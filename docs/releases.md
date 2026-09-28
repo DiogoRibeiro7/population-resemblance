@@ -7,7 +7,7 @@ Status: unreleased.
 The initial release is intended to establish a tested implementation of categorical population resemblance monitoring with:
 
 - the Population Resemblance Statistic;
-- the full (delta)-resemblance decision framework;
+- the full \(\delta\)-resemblance decision framework;
 - count-based and named-category APIs;
 - PSI and discrete KS benchmarks;
 - simulation and operating-characteristic tooling;

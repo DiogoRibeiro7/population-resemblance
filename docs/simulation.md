@@ -2,7 +2,7 @@
 
 ## Region probabilities
 
-`simulate_region_probabilities()` estimates how often repeated multinomial samples fall into (R_1), (R_2), or (R_3).
+`simulate_region_probabilities()` estimates how often repeated multinomial samples fall into \(R_1\), \(R_2\), or \(R_3\).
 
 ```python
 from population_resemblance import simulate_region_probabilities
@@ -26,7 +26,7 @@ For an odd number of categories, the central category is unchanged while equal-m
 
 ## Operating-characteristic curves
 
-The package can evaluate classification behavior over increasing multiples of (delta):
+The package can evaluate classification behavior over increasing multiples of \(\delta\):
 
 ```python
 from population_resemblance import simulate_operating_characteristic_curve
@@ -44,7 +44,7 @@ print(curve.r2_probabilities)
 print(curve.r3_probabilities)
 ```
 
-By default, the grid contains 30 points from (0) to ((3M+2)delta), matching the range used in the source study.
+By default, the grid contains 30 points from \(0\) to \((3M+2)\delta\), matching the range used in the source study.
 
 !!! note
     These are operating-characteristic curves for the nested decision framework. They should not be relabeled as conventional power curves.
@@ -71,8 +71,8 @@ This makes the operating differences directly inspectable while preserving the f
 
 The discrete KS statistic is
 
-[
-max_j |hat F(j)-F_0(j)|.
-]
+\[
+\max_j |\hat F(j)-F_0(j)|.
+\]
 
 Because its null distribution depends on the discrete reference probabilities, `discrete_ks_test_counts()` calibrates the p-value by Monte Carlo simulation under the multinomial reference.

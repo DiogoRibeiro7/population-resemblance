@@ -15,7 +15,7 @@ Population Resemblance provides a typed Python toolkit for categorical distribut
 
 ### Tolerance-aware decisions
 
-Separate material population shift from exact equality using (delta)-resemblance and non-central (chi^2) decision boundaries.
+Separate material population shift from exact equality using \(\delta\)-resemblance and non-central \(\chi^2\) decision boundaries.
 
 </div>
 
@@ -41,16 +41,16 @@ Inspect category contributions, calibration sensitivity, operating-characteristi
 
 The core statistic is
 
-[
-operatorname{PRS}
+\[
+\operatorname{PRS}
 =
-sum_{j=1}^{B}
-rac{(hat p_j-p_{0j})^2}{p_{0j}},
-]
+\sum_{j=1}^{B}
+\frac{(\hat p_j-p_{0j})^2}{p_{0j}},
+\]
 
-where (p_0) is a fixed reference distribution and (hat p) is the empirical current distribution.
+where \(p_0\) is a fixed reference distribution and \(\hat p\) is the empirical current distribution.
 
-The package implements the full decision framework around that statistic, including (delta)-resemblance, least-favourable non-centrality, and the three decision regions (R_1), (R_2), and (R_3).
+The package implements the full decision framework around that statistic, including \(\delta\)-resemblance, least-favourable non-centrality, and the three decision regions \(R_1\), \(R_2\), and \(R_3\).
 
 It also includes PSI and discrete Kolmogorov-Smirnov benchmarks, but keeps them conceptually separate because they use different decision rules.
 
@@ -59,7 +59,7 @@ It also includes PSI and discrete Kolmogorov-Smirnov benchmarks, but keeps them 
 Population Resemblance is designed for any problem where a categorical population must be monitored against a baseline. Banking is the original application, but the abstraction applies equally to model-output classes, patient-risk groups, manufacturing states, customer segments, failure modes, or other discrete populations.
 
 !!! note "Statistical scope"
-    The implemented PRS methodology uses a fixed reference distribution (p_0). When reference counts are supplied, the package converts them to empirical probabilities and treats those probabilities as fixed conditionally. A genuine two-sample PRS formulation is not claimed.
+    The implemented PRS methodology uses a fixed reference distribution \(p_0\). When reference counts are supplied, the package converts them to empirical probabilities and treats those probabilities as fixed conditionally. A genuine two-sample PRS formulation is not claimed.
 
 ## Scientific basis
 
