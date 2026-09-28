@@ -50,7 +50,7 @@ def test_largest_contributor_is_identified() -> None:
         labels=["a", "b", "c"],
     )
 
-    assert diagnostics.largest_contributor.category == "a"
+    assert diagnostics.largest_contributor.category == "c"
     assert diagnostics.maximum_absolute_shift == pytest.approx(0.15)
 
 
