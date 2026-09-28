@@ -4,7 +4,7 @@ Contributions are welcome when they preserve the statistical scope and engineeri
 
 ## Development environment
 
-The project targets Python 3.12 and uses Poetry.
+The project supports Python 3.12, 3.13, and 3.14 and uses Poetry. Python 3.12 remains the canonical development version for linting, typing, and documentation checks.
 
 ```bash
 git clone https://github.com/DiogoRibeiro7/population-resemblance.git

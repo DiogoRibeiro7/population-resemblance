@@ -40,3 +40,32 @@ jobs:
 
       - name: Documentation
         run: poetry run mkdocs build --strict
+
+  compatibility:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.12"
+          - "3.13"
+          - "3.14"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: pipx install poetry==2.5.1
+
+      - name: Install test dependencies
+        run: poetry install --without docs
+
+      - name: Run tests
+        run: poetry run pytest

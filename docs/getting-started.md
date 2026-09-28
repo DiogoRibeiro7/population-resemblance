@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Population Resemblance targets Python 3.12.
+Population Resemblance supports Python 3.12, 3.13, and 3.14.
 
 The runtime dependencies are deliberately small:
 

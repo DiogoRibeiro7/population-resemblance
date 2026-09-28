@@ -2,7 +2,7 @@
 
 ## Environment
 
-The project targets Python 3.12 and uses Poetry.
+The project supports Python 3.12, 3.13, and 3.14. Python 3.12 is the canonical version for Ruff, mypy, and documentation validation, while the test suite also runs against every supported Python version.
 
 ```bash
 poetry install --with docs

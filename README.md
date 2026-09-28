@@ -451,7 +451,7 @@ Temporal monitoring series can likewise be converted to one flat record per peri
 
 ## Development
 
-The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
+The project supports Python 3.12, 3.13, and 3.14 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
 
 ```bash
 poetry install
