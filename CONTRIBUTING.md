@@ -73,6 +73,14 @@ New Python code should:
 - preserve deterministic behavior in simulations when a seed is supplied;
 - document assumptions and failure modes.
 
+## Public API changes
+
+The compatibility boundary is the package root export list in `population_resemblance.__all__`.
+
+If a pull request adds, removes, or renames a root-level public symbol, it must also update the public API snapshot test and the relevant user documentation. New public exports are treated as intentional compatibility commitments.
+
+Underscore-prefixed helpers are internal implementation details and should not be used by downstream code.
+
 ## Pull-request scope
 
 Prefer focused pull requests. Avoid combining statistical changes, API redesigns, documentation restructuring, and unrelated cleanup in one change unless they are inseparable.
