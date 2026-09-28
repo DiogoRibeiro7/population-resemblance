@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the original PRS methodology."
+title: "population-resemblance"
+type: software
+authors:
+  - family-names: Ribeiro
+    given-names: Diogo
+repository-code: "https://github.com/DiogoRibeiro7/population-resemblance"
+url: "https://diogoribeiro7.github.io/population-resemblance/"
+license: MIT
+version: "0.1.0"
+date-released: "2026-09-28"
+keywords:
+  - population drift
+  - distribution shift
+  - model monitoring
+  - population stability index
+  - chi-square
+  - statistics
+preferred-citation:
+  type: article
+  title: "The population resemblance statistic: a chi-square measure of fit for banking"
+  authors:
+    - family-names: Potgieter
+      given-names: C. J.
+    - family-names: Van Zyl
+      given-names: C.
+    - family-names: Schutte
+      given-names: W. D.
+    - family-names: Lombard
+      given-names: F.
+  journal: "Annals of Operations Research"
+  year: 2026
+  volume: 361
+  start: 413
+  end: 435
+  doi: "10.1007/s10479-025-07024-6"

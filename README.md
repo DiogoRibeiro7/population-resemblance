@@ -469,3 +469,17 @@ The initial PRS methodology is based on:
 > Annals of Operations Research, 361, 413–435.
 
 This repository is an independent software implementation and extension of that methodology.
+
+
+## Citation
+
+If you use this software in research, cite the repository using `CITATION.cff` and cite the original PRS methodology:
+
+> Potgieter, C. J., Van Zyl, C., Schutte, W. D., & Lombard, F. (2026).  
+> *The population resemblance statistic: a chi-square measure of fit for banking*.  
+> Annals of Operations Research, 361, 413–435.  
+> https://doi.org/10.1007/s10479-025-07024-6
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, statistical-change requirements, and local quality checks.
