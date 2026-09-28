@@ -27,7 +27,7 @@ jobs:
         run: poetry install
 
       - name: Ruff
-        run: poetry run ruff check . --fix --diff
+        run: poetry run ruff check .
 
       - name: Mypy
         run: poetry run mypy src tests
