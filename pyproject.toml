@@ -1,4 +1,5 @@
 [tool.poetry]
+requires-poetry = ">=2.5,<2.6"
 name = "population-resemblance"
 version = "0.1.0"
 description = "Statistically principled monitoring of categorical population and distribution shifts."

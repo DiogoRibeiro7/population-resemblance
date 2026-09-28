@@ -21,10 +21,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install Poetry
-        run: pipx install poetry
+        run: pipx install poetry==2.5.1
 
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --with docs
+
+      - name: Validate project metadata
+        run: poetry check --lock
 
       - name: Ruff
         run: poetry run ruff check .
