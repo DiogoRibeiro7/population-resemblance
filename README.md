@@ -362,6 +362,39 @@ print(result.monitoring.prs)
 The API requires the current and reference mappings to contain exactly the same category
 names, preventing silent errors caused by inconsistent category ordering.
 
+## Reusable monitor objects
+
+For production workflows, the reference distribution and calibration settings can be stored
+once and reused across many assessments.
+
+```python
+from population_resemblance import PopulationMonitor
+
+monitor = PopulationMonitor.from_reference(
+    [0.50, 0.30, 0.20],
+    c=0.7,
+    m=2.0,
+    ks_simulations=5_000,
+    ks_seed=123,
+)
+
+first = monitor.assess([50, 30, 20])
+second = monitor.assess([45, 35, 20])
+
+series = monitor.assess_temporal(
+    [
+        [50, 30, 20],
+        [45, 35, 20],
+        [40, 35, 25],
+    ],
+    labels=["Q1", "Q2", "Q3"],
+)
+```
+
+A `NamedPopulationMonitor` provides the same pattern for named categories. These monitor
+objects do not introduce new statistics; they package the existing validated configuration
+for repeated use.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
