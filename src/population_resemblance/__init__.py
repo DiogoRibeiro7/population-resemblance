@@ -9,6 +9,12 @@ from population_resemblance.counts import (
     assess_population_counts,
     counts_to_proportions,
 )
+from population_resemblance.diagnostics import (
+    CategoryContribution,
+    ResemblanceDiagnostics,
+    population_count_diagnostics,
+    population_resemblance_diagnostics,
+)
 from population_resemblance.framework import (
     assess_population_resemblance,
     critical_values,
@@ -45,6 +51,7 @@ from population_resemblance.temporal import (
 )
 
 __all__ = [
+    "CategoryContribution",
     "ClassificationProbabilities",
     "CriticalValues",
     "DecisionRegion",
@@ -53,6 +60,7 @@ __all__ = [
     "PSIAssessment",
     "PopulationMonitoringReport",
     "PopulationResemblanceResult",
+    "ResemblanceDiagnostics",
     "SimulationResult",
     "TemporalMonitoringPoint",
     "TemporalMonitoringSeries",
@@ -67,6 +75,8 @@ __all__ = [
     "discrete_ks_test_counts",
     "lewis_psi_status",
     "maximum_noncentrality",
+    "population_count_diagnostics",
+    "population_resemblance_diagnostics",
     "population_resemblance_statistic",
     "population_stability_index",
     "recommended_delta",
