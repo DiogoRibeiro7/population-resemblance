@@ -203,6 +203,35 @@ print(series.ks_statistics)
 The reference distribution remains fixed while each period is assessed independently.
 This makes the API suitable for recurring model- or population-monitoring workflows.
 
+## Category diagnostics
+
+PRS can also be decomposed into category-level contributions, making it easier to see
+which parts of the population are driving the overall discrepancy.
+
+```python
+from population_resemblance import population_count_diagnostics
+
+diagnostics = population_count_diagnostics(
+    counts=[400, 350, 250],
+    reference=[0.50, 0.30, 0.20],
+    labels=["low", "medium", "high"],
+)
+
+print(diagnostics.statistic)
+print(diagnostics.largest_contributor)
+
+for category in diagnostics.categories:
+    print(
+        category.category,
+        category.signed_shift,
+        category.prs_contribution,
+        category.contribution_share,
+    )
+```
+
+The decomposition is exact: the per-category PRS contributions sum to the full statistic.
+This adds interpretability without changing the underlying method.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
