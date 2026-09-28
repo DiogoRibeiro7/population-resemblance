@@ -50,6 +50,11 @@ from population_resemblance.result import (
     DecisionRegion,
     PopulationResemblanceResult,
 )
+from population_resemblance.sensitivity import (
+    CalibrationSensitivityGrid,
+    CalibrationSensitivityPoint,
+    sweep_calibration_parameters,
+)
 from population_resemblance.simulation import (
     SimulationResult,
     simulate_region_probabilities,
@@ -63,6 +68,8 @@ from population_resemblance.temporal import (
 
 __all__ = [
     "CalibrationDiagnostics",
+    "CalibrationSensitivityGrid",
+    "CalibrationSensitivityPoint",
     "CategoryContribution",
     "ClassificationProbabilities",
     "CriticalValues",
@@ -101,5 +108,6 @@ __all__ = [
     "simulate_prs_psi_comparison",
     "simulate_region_probabilities",
     "source_deviation_grid",
+    "sweep_calibration_parameters",
     "symmetric_category_shift",
 ]
