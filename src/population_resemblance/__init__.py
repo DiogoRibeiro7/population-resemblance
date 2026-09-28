@@ -28,6 +28,12 @@ from population_resemblance.ks import (
     discrete_ks_status,
     discrete_ks_test_counts,
 )
+from population_resemblance.operating import (
+    OperatingCharacteristicCurve,
+    OperatingCharacteristicPoint,
+    simulate_operating_characteristic_curve,
+    source_deviation_grid,
+)
 from population_resemblance.prs import population_resemblance_statistic
 from population_resemblance.psi import lewis_psi_status, population_stability_index
 from population_resemblance.reference import (
@@ -62,6 +68,8 @@ __all__ = [
     "CriticalValues",
     "DecisionRegion",
     "DiscreteKSTestResult",
+    "OperatingCharacteristicCurve",
+    "OperatingCharacteristicPoint",
     "PRSPSIComparisonResult",
     "PSIAssessment",
     "PopulationMonitoringReport",
@@ -89,7 +97,9 @@ __all__ = [
     "population_resemblance_statistic",
     "population_stability_index",
     "recommended_delta",
+    "simulate_operating_characteristic_curve",
     "simulate_prs_psi_comparison",
     "simulate_region_probabilities",
+    "source_deviation_grid",
     "symmetric_category_shift",
 ]
