@@ -15,11 +15,11 @@ result = assess_population_counts(
 
 The package derives
 
-[
-n=sum_j n_j,
-qquad
-hat p_j=rac{n_j}{n},
-]
+\[
+n=\sum_j n_j,
+\qquad
+\hat p_j=\frac{n_j}{n},
+\]
 
 before evaluating PRS.
 
@@ -37,7 +37,7 @@ result = assess_population_resemblance(
 )
 ```
 
-Use this form only when the supplied (n) genuinely corresponds to the empirical distribution.
+Use this form only when the supplied \(n\) genuinely corresponds to the empirical distribution.
 
 ## Unified monitoring report
 
