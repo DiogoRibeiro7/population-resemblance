@@ -38,6 +38,11 @@ from population_resemblance.simulation import (
     simulate_region_probabilities,
     symmetric_category_shift,
 )
+from population_resemblance.temporal import (
+    TemporalMonitoringPoint,
+    TemporalMonitoringSeries,
+    assess_temporal_monitoring,
+)
 
 __all__ = [
     "ClassificationProbabilities",
@@ -49,9 +54,12 @@ __all__ = [
     "PopulationMonitoringReport",
     "PopulationResemblanceResult",
     "SimulationResult",
+    "TemporalMonitoringPoint",
+    "TemporalMonitoringSeries",
     "assess_population_counts",
     "assess_population_monitoring",
     "assess_population_resemblance",
+    "assess_temporal_monitoring",
     "counts_to_proportions",
     "critical_values",
     "discrete_ks_statistic",
