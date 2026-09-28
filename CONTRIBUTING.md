@@ -18,6 +18,18 @@ Install the pre-commit hooks:
 poetry run pre-commit install
 ```
 
+## Dependency reproducibility
+
+Use the committed `poetry.lock` for normal development installs. Dependency updates should be deliberate: update constraints when needed, regenerate the lockfile with the project Poetry version, review the dependency diff, and run `poetry check` before opening a pull request.
+
+```bash
+poetry install --with docs
+poetry lock
+poetry check
+```
+
+Do not regenerate the lockfile merely to refresh unrelated transitive packages.
+
 ## Before opening a pull request
 
 Run the same checks used by CI:
