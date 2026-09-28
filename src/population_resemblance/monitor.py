@@ -47,7 +47,7 @@ class PopulationMonitor:
         alpha2: float = 0.10,
         ks_simulations: int = 10_000,
         ks_seed: int | None = None,
-    ) -> "PopulationMonitor":
+    ) -> PopulationMonitor:
         """Create a monitor from a fixed reference probability vector."""
         array = np.asarray(reference, dtype=np.float64)
         return cls(
@@ -124,7 +124,7 @@ class NamedPopulationMonitor:
         alpha2: float = 0.10,
         ks_simulations: int = 10_000,
         ks_seed: int | None = None,
-    ) -> "NamedPopulationMonitor":
+    ) -> NamedPopulationMonitor:
         """Create a monitor from a named fixed reference distribution."""
         return cls(
             reference=tuple((key, float(value)) for key, value in reference.items()),
