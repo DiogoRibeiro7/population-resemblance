@@ -259,6 +259,31 @@ print(calibration.feasible)
 This is useful for validating parameter choices and understanding how the tolerance,
 reference distribution, and sample size determine the PRS decision boundaries.
 
+## Empirical reference samples
+
+When the baseline is available as counts rather than probabilities, the package can derive
+the empirical reference distribution directly.
+
+```python
+from population_resemblance import assess_against_reference_counts
+
+result = assess_against_reference_counts(
+    current_counts=[40, 35, 25],
+    reference_counts=[500, 300, 200],
+    ks_simulations=5_000,
+    ks_seed=123,
+)
+
+print(result.reference_probabilities)
+print(result.current_sample_size)
+print(result.reference_sample_size)
+print(result.monitoring.prs)
+```
+
+This is still the paper's one-sample conditional formulation: the empirical baseline is
+converted to probabilities and then treated as fixed. It is not a two-sample PRS test and
+does not propagate uncertainty from the reference sample into the critical values.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
