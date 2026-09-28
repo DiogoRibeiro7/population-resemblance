@@ -30,6 +30,10 @@ from population_resemblance.ks import (
 )
 from population_resemblance.prs import population_resemblance_statistic
 from population_resemblance.psi import lewis_psi_status, population_stability_index
+from population_resemblance.reference import (
+    ReferenceCountMonitoringReport,
+    assess_against_reference_counts,
+)
 from population_resemblance.reporting import (
     PSIAssessment,
     PopulationMonitoringReport,
@@ -62,10 +66,12 @@ __all__ = [
     "PSIAssessment",
     "PopulationMonitoringReport",
     "PopulationResemblanceResult",
+    "ReferenceCountMonitoringReport",
     "ResemblanceDiagnostics",
     "SimulationResult",
     "TemporalMonitoringPoint",
     "TemporalMonitoringSeries",
+    "assess_against_reference_counts",
     "assess_population_counts",
     "assess_population_monitoring",
     "assess_population_resemblance",
