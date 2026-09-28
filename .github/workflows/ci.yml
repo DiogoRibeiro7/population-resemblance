@@ -6,17 +6,14 @@ on:
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  bootstrap-lock:
-    if: github.event_name == 'pull_request'
+  quality:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ci/python-compatibility
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,13 +23,49 @@ jobs:
       - name: Install Poetry
         run: pipx install poetry==2.5.1
 
-      - name: Refresh lockfile
-        run: poetry lock
+      - name: Install dependencies
+        run: poetry install --with docs
 
-      - name: Commit lockfile
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add poetry.lock
-          git diff --cached --quiet || git commit -m "build: refresh lockfile for Python support range"
-          git push origin HEAD:ci/python-compatibility
+      - name: Validate project metadata
+        run: poetry check --lock
+
+      - name: Ruff
+        run: poetry run ruff check .
+
+      - name: Mypy
+        run: poetry run mypy src tests
+
+      - name: Tests
+        run: poetry run pytest --cov=population_resemblance --cov-report=term-missing
+
+      - name: Documentation
+        run: poetry run mkdocs build --strict
+
+  compatibility:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.12"
+          - "3.13"
+          - "3.14"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: pipx install poetry==2.5.1
+
+      - name: Install test dependencies
+        run: poetry install --without docs
+
+      - name: Run tests
+        run: poetry run pytest
