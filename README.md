@@ -309,6 +309,30 @@ print(curve.r3_probabilities)
 By default, the curve uses 30 deviation values from zero to \((3M + 2)\delta\), matching
 the range described in the source simulation study.
 
+## Calibration sensitivity analysis
+
+Calibration choices can be explored over a full Cartesian grid of `c`, `M`,
+`alpha1`, and `alpha2`.
+
+```python
+from population_resemblance import sweep_calibration_parameters
+
+grid = sweep_calibration_parameters(
+    reference=[0.2] * 5,
+    sample_size=100,
+    c_values=[0.5, 0.7, 1.0],
+    m_values=[1.2, 1.5, 2.0],
+    alpha1_values=[0.05, 0.10],
+    alpha2_values=[0.10],
+)
+
+print(len(grid.feasible_points))
+print(len(grid.infeasible_points))
+```
+
+Invalid parameter combinations are retained with their error message instead of aborting
+the full sweep. This makes structural constraints and sensitivity trade-offs visible.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
