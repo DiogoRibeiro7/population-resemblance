@@ -232,6 +232,33 @@ for category in diagnostics.categories:
 The decomposition is exact: the per-category PRS contributions sum to the full statistic.
 This adds interpretability without changing the underlying method.
 
+## Calibration diagnostics
+
+The PRS framework can be inspected before any monitoring decision is made.
+
+```python
+from population_resemblance import evaluate_calibration
+
+calibration = evaluate_calibration(
+    reference=[0.2] * 5,
+    sample_size=50,
+    c=0.7,
+    m=2.0,
+    alpha1=0.05,
+    alpha2=0.10,
+)
+
+print(calibration.delta)
+print(calibration.widened_delta)
+print(calibration.lambda_sup)
+print(calibration.lower_critical_value)
+print(calibration.upper_critical_value)
+print(calibration.feasible)
+```
+
+This is useful for validating parameter choices and understanding how the tolerance,
+reference distribution, and sample size determine the PRS decision boundaries.
+
 ## Development
 
 The project targets Python 3.12 and uses Poetry, pytest, Ruff, mypy, and pre-commit.
