@@ -28,6 +28,7 @@ from population_resemblance.ks import (
     discrete_ks_status,
     discrete_ks_test_counts,
 )
+from population_resemblance.monitor import NamedPopulationMonitor, PopulationMonitor
 from population_resemblance.named import (
     NamedPopulationMonitoringReport,
     assess_named_population,
@@ -79,11 +80,13 @@ __all__ = [
     "CriticalValues",
     "DecisionRegion",
     "DiscreteKSTestResult",
+    "NamedPopulationMonitor",
     "NamedPopulationMonitoringReport",
     "OperatingCharacteristicCurve",
     "OperatingCharacteristicPoint",
     "PRSPSIComparisonResult",
     "PSIAssessment",
+    "PopulationMonitor",
     "PopulationMonitoringReport",
     "PopulationResemblanceResult",
     "ReferenceCountMonitoringReport",
