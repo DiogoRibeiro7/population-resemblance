@@ -181,7 +181,7 @@ The work is split into focused research tasks:
 
 - #44 — independent two-sample asymptotics ([derivation](two-sample-asymptotics.md));
 - #45 — two-sample resemblance critical values ([derivation](two-sample-critical-values.md));
-- #46 — finite-sample simulation calibration;
+- #46 — finite-sample simulation calibration ([study](two-sample-calibration.md));
 - #47 — overlapping and dependent samples.
 
 The parent research item remains #32.

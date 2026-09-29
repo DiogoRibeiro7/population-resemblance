@@ -60,6 +60,9 @@ jobs:
       - name: Validate two-sample critical-value research
         run: poetry run python research/validate_two_sample_critical_values.py
 
+      - name: Simulate two-sample finite-sample calibration
+        run: poetry run python research/simulate_two_sample_calibration.py --simulations 5000
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 

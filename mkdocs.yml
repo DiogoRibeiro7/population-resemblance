@@ -49,6 +49,7 @@ nav:
       - Research framework: two-sample-research.md
       - Independent asymptotics: two-sample-asymptotics.md
       - Critical values: two-sample-critical-values.md
+      - Finite-sample calibration: two-sample-calibration.md
   - API reference: api.md
   - Public API policy: public-api.md
   - Development: development.md
