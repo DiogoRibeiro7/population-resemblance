@@ -41,6 +41,7 @@ nav:
   - Home: index.md
   - Getting started: getting-started.md
   - User guide: user-guide.md
+  - Examples: examples.md
   - Theory: theory.md
   - Simulation: simulation.md
   - Reproducibility: reproducibility.md
