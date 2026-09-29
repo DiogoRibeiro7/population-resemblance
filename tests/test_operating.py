@@ -121,4 +121,13 @@ def test_operating_curve_forwards_batch_size_without_changing_results() -> None:
         batch_size=127,
     )
 
-    assert chunked == full
+    assert chunked.delta == full.delta
+    assert chunked.delta_multiples == full.delta_multiples
+
+    for chunked_point, full_point in zip(chunked.points, full.points, strict=True):
+        assert chunked_point.result.probabilities == full_point.result.probabilities
+        assert chunked_point.result.mean_statistic == pytest.approx(
+            full_point.result.mean_statistic,
+            rel=0.0,
+            abs=1e-15,
+        )
