@@ -39,6 +39,26 @@ count vector.
 Future work will add further benchmark drift measures and extensions such as two-sample
 and cost-sensitive monitoring.
 
+## Installation
+
+The first public package release is version `0.1.0`.
+
+After publication to PyPI:
+
+```bash
+python -m pip install population-resemblance
+```
+
+The package supports Python 3.12, 3.13, and 3.14.
+
+For development from source:
+
+```bash
+git clone https://github.com/DiogoRibeiro7/population-resemblance.git
+cd population-resemblance
+poetry install --with docs
+```
+
 ## Quick start
 
 For real observed samples, the count-based API is preferred because it derives the sample
