@@ -39,6 +39,7 @@ from population_resemblance.operating import (
     simulate_operating_characteristic_curve,
     source_deviation_grid,
 )
+from population_resemblance.planning import minimum_structural_sample_size
 from population_resemblance.prs import population_resemblance_statistic
 from population_resemblance.psi import lewis_psi_status, population_stability_index
 from population_resemblance.reference import (
@@ -120,6 +121,7 @@ __all__ = [
     "evaluate_calibration",
     "lewis_psi_status",
     "maximum_noncentrality",
+    "minimum_structural_sample_size",
     "monitoring_report_to_dict",
     "population_count_diagnostics",
     "population_resemblance_diagnostics",
