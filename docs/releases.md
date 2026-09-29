@@ -16,7 +16,7 @@ The initial public release establishes a tested implementation of categorical po
 - reusable monitor objects;
 - serialization helpers.
 
-The complete change list is maintained in [CHANGELOG.md](../CHANGELOG.md).
+The complete change list is maintained in [CHANGELOG.md](https://github.com/DiogoRibeiro7/population-resemblance/blob/main/CHANGELOG.md).
 
 
 ## Automated PyPI publishing
