@@ -2,9 +2,9 @@
 
 ## 0.1.0
 
-Status: unreleased.
+Status: release candidate.
 
-The initial release is intended to establish a tested implementation of categorical population resemblance monitoring with:
+The initial public release establishes a tested implementation of categorical population resemblance monitoring with:
 
 - the Population Resemblance Statistic;
 - the full \(\delta\)-resemblance decision framework;
@@ -16,7 +16,7 @@ The initial release is intended to establish a tested implementation of categori
 - reusable monitor objects;
 - serialization helpers.
 
-Release notes will be expanded when the first package release is prepared.
+The complete change list is maintained in [CHANGELOG.md](../CHANGELOG.md).
 
 
 ## Automated PyPI publishing
