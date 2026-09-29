@@ -95,6 +95,7 @@ def simulate_region_probabilities(
     m: float = 2.0,
     alpha1: float = 0.05,
     alpha2: float = 0.10,
+    batch_size: int | None = None,
 ) -> SimulationResult:
     """Estimate PRS decision probabilities under a specified current population.
 
@@ -125,6 +126,9 @@ def simulate_region_probabilities(
         Error-control parameter for the upper decision boundary.
     alpha2:
         Error-control parameter for the lower decision boundary.
+    batch_size:
+        Optional maximum number of Monte Carlo samples held in memory at once.
+        If omitted, all simulations are generated in one batch.
 
     Returns
     -------
@@ -145,6 +149,11 @@ def simulate_region_probabilities(
         raise ValueError("simulations must be positive.")
     if seed is not None and (isinstance(seed, bool) or not isinstance(seed, int)):
         raise TypeError("seed must be an integer or None.")
+    if batch_size is not None:
+        if isinstance(batch_size, bool) or not isinstance(batch_size, int):
+            raise TypeError("batch_size must be an integer or None.")
+        if batch_size <= 0:
+            raise ValueError("batch_size must be positive.")
 
     resolved_delta = (
         recommended_delta(reference_array, sample_size, c=c)
@@ -161,26 +170,42 @@ def simulate_region_probabilities(
     )
 
     rng = np.random.default_rng(seed)
-    counts = rng.multinomial(
-        sample_size,
-        current_array,
-        size=simulations,
-    )
-    observed = counts.astype(np.float64) / float(sample_size)
-    differences = observed - reference_array
-    statistics = np.sum(
-        np.square(differences) / reference_array,
-        axis=1,
-    )
+    resolved_batch_size = simulations if batch_size is None else min(batch_size, simulations)
 
-    r1 = statistics <= thresholds.lower
-    r3 = statistics > thresholds.upper
-    r2 = ~(r1 | r3)
+    r1_count = 0
+    r2_count = 0
+    r3_count = 0
+    statistic_sum = 0.0
+    completed = 0
+
+    while completed < simulations:
+        current_batch = min(resolved_batch_size, simulations - completed)
+        counts = rng.multinomial(
+            sample_size,
+            current_array,
+            size=current_batch,
+        )
+        observed = counts.astype(np.float64) / float(sample_size)
+        differences = observed - reference_array
+        statistics = np.sum(
+            np.square(differences) / reference_array,
+            axis=1,
+        )
+
+        r1 = statistics <= thresholds.lower
+        r3 = statistics > thresholds.upper
+        r2 = ~(r1 | r3)
+
+        r1_count += int(np.count_nonzero(r1))
+        r2_count += int(np.count_nonzero(r2))
+        r3_count += int(np.count_nonzero(r3))
+        statistic_sum += float(np.sum(statistics))
+        completed += current_batch
 
     return SimulationResult(
         simulations=simulations,
-        r1_probability=float(np.mean(r1)),
-        r2_probability=float(np.mean(r2)),
-        r3_probability=float(np.mean(r3)),
-        mean_statistic=float(np.mean(statistics)),
+        r1_probability=r1_count / simulations,
+        r2_probability=r2_count / simulations,
+        r3_probability=r3_count / simulations,
+        mean_statistic=statistic_sum / simulations,
     )

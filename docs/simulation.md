@@ -49,6 +49,44 @@ By default, the grid contains 30 points from \(0\) to \((3M+2)\delta\), matching
 !!! note
     These are operating-characteristic curves for the nested decision framework. They should not be relabeled as conventional power curves.
 
+## Memory-bounded Monte Carlo
+
+Large simulation studies can be evaluated in batches so memory use depends on the batch
+size rather than the total number of Monte Carlo samples.
+
+```python
+from population_resemblance import simulate_region_probabilities
+
+result = simulate_region_probabilities(
+    current=[0.40, 0.35, 0.25],
+    reference=[0.50, 0.30, 0.20],
+    sample_size=250,
+    simulations=1_000_000,
+    seed=123,
+    batch_size=10_000,
+)
+```
+
+With a fixed seed, batching preserves the same generated multinomial stream and therefore
+the same region classifications. The mean PRS is numerically equivalent, although its final
+floating-point value can differ at machine-roundoff scale because partial sums are grouped
+by batch. The main practical difference is the maximum number of simulated rows held in
+memory at once.
+
+Operating-characteristic curves expose the same `batch_size` option and forward it to
+each curve-point simulation.
+
+For a quick runtime and working-set estimate, run:
+
+```bash
+poetry run python examples/benchmark_chunked_simulation.py \
+  --simulations 100000 \
+  --batch-size 5000
+```
+
+The benchmark reports elapsed time and the approximate size of the dominant multinomial
+count matrix for the full and chunked cases.
+
 ## Monte Carlo uncertainty
 
 Simulation probabilities have finite Monte Carlo error. Wilson intervals can be attached to the three region estimates:
