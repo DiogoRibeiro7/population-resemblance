@@ -43,6 +43,7 @@ EXPECTED_PUBLIC_API = (
     "evaluate_calibration",
     "lewis_psi_status",
     "maximum_noncentrality",
+    "minimum_structural_sample_size",
     "monitoring_report_to_dict",
     "population_count_diagnostics",
     "population_resemblance_diagnostics",

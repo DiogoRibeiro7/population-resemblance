@@ -20,6 +20,12 @@ The public API is documented directly from the package docstrings.
     options:
       members_order: source
 
+## Sample-size planning
+
+::: population_resemblance.planning
+    options:
+      members_order: source
+
 ## Unified reporting
 
 ::: population_resemblance.reporting

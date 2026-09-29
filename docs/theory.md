@@ -150,6 +150,32 @@ M\delta \le \min_j p_{0j}.
 
 This prevents the resemblance region from implying invalid negative probabilities.
 
+
+## Structural sample-size planning
+
+For the recommended tolerance,
+
+\[
+\delta
+=
+c\min_j\sqrt{\frac{p_{0j}(1-p_{0j})}{n}},
+\]
+
+the structural requirement
+
+\[
+M\delta \le \min_j p_{0j}
+\]
+
+can be solved directly for the smallest positive integer sample size.
+
+Use `minimum_structural_sample_size()` to compute that bound.
+
+!!! warning "What this bound means"
+    The returned value guarantees only that the recommended tolerance satisfies the
+    probability-domain constraint. It is **not** a power calculation and does not guarantee
+    good finite-sample calibration, sufficient expected cell counts, or asymptotic accuracy.
+
 ## Calibration
 
 Use `evaluate_calibration()` to inspect the derived tolerance, non-centrality, critical values, and margin to the structural bound before running an assessment.
