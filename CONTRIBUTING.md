@@ -101,3 +101,20 @@ For reproducible statistical or numerical issues, include:
 - random seed, when simulations are involved;
 - expected behavior;
 - observed behavior.
+
+
+## Release workflow
+
+Package publication is performed only by the GitHub Release workflow. Do not publish
+manually from a development machine.
+
+Before creating a release:
+
+- update the version in `pyproject.toml`;
+- ensure `poetry.lock` is current;
+- run the complete CI suite;
+- confirm the release notes;
+- create a GitHub Release whose tag matches the package version, normally prefixed with
+  `v`.
+
+The publishing job uses PyPI Trusted Publishing through the `pypi` GitHub environment.
