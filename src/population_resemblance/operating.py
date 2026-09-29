@@ -102,6 +102,7 @@ def simulate_operating_characteristic_curve(
     m: float = 2.0,
     alpha1: float = 0.05,
     alpha2: float = 0.10,
+    batch_size: int | None = None,
 ) -> OperatingCharacteristicCurve:
     """Simulate PRS decision probabilities over a sequence of shift magnitudes.
 
@@ -134,6 +135,8 @@ def simulate_operating_characteristic_curve(
         Upper PRS error-control parameter.
     alpha2:
         Lower PRS error-control parameter.
+    batch_size:
+        Optional Monte Carlo batch size forwarded to each curve-point simulation.
 
     Returns
     -------
@@ -176,6 +179,7 @@ def simulate_operating_characteristic_curve(
             m=m,
             alpha1=alpha1,
             alpha2=alpha2,
+            batch_size=batch_size,
         )
 
         curve_points.append(
