@@ -47,7 +47,22 @@ Run:
 poetry run python examples/reproduce_deviation_grid.py
 ```
 
-By default, the script uses:
+The paper states a grid of 30 equally spaced values from \(0\) to
+\((3M+2)\delta\). For the illustrated configuration \((n,B)=(50,5)\),
+\(c=0.7\), and \(M=2\), this means a stated upper endpoint of \(8\delta\).
+
+There is an important feasibility constraint in that same simulation construction. The
+perturbed probabilities are formed as \(1/B-\delta_v\) and
+\(1/B+\delta_v\), so a valid multinomial distribution requires
+\(\delta_v\le 1/B\). In the illustrated case, \(\delta\approx0.039598\),
+hence \(8\delta\approx0.3168 > 0.2 = 1/B\). The final part of the stated grid
+would therefore imply negative category probabilities.
+
+The script preserves the paper's stated 30-point grid for inspection, computes the
+feasibility boundary explicitly, and simulates only the feasible prefix rather than silently
+constructing invalid probability vectors.
+
+By default, it uses:
 
 - reference distribution \((0.2,0.2,0.2,0.2,0.2)\);
 - sample size \(n=50\);
@@ -55,10 +70,10 @@ By default, the script uses:
 - \(M=2\);
 - \(\alpha_1=0.05\);
 - \(\alpha_2=0.10\);
-- 30 equally spaced deviation values from 0 to \((3M+2)\delta = 8\delta\);
-- 10,000 Monte Carlo samples per grid point.
+- 10,000 Monte Carlo samples per feasible grid point.
 
-The repository seed is 2026. This seed is chosen for software reproducibility and is **not claimed to be a seed reported by the paper**.
+The repository seed is 2026. This seed is chosen for software reproducibility and is
+**not claimed to be a seed reported by the paper**.
 
 For a faster smoke run:
 
