@@ -180,7 +180,7 @@ A public two-sample API should not be merged until all of the following are avai
 The work is split into focused research tasks:
 
 - #44 — independent two-sample asymptotics ([derivation](two-sample-asymptotics.md));
-- #45 — two-sample resemblance critical values;
+- #45 — two-sample resemblance critical values ([derivation](two-sample-critical-values.md));
 - #46 — finite-sample simulation calibration;
 - #47 — overlapping and dependent samples.
 
