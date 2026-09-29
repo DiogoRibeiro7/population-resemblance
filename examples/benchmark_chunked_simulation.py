@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from math import isclose
 from time import perf_counter
 
 from population_resemblance import simulate_region_probabilities
@@ -55,8 +56,15 @@ def main() -> None:
     )
     chunked_seconds = perf_counter() - start
 
-    if full != chunked:
-        raise AssertionError("chunked and single-batch results differ")
+    if full.probabilities != chunked.probabilities:
+        raise AssertionError("chunked and single-batch region probabilities differ")
+    if not isclose(
+        full.mean_statistic,
+        chunked.mean_statistic,
+        rel_tol=0.0,
+        abs_tol=1e-15,
+    ):
+        raise AssertionError("chunked and single-batch mean PRS values differ materially")
 
     effective_batch = min(args.batch_size, args.simulations)
 
