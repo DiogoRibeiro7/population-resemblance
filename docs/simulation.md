@@ -68,8 +68,10 @@ result = simulate_region_probabilities(
 ```
 
 With a fixed seed, batching preserves the same generated multinomial stream and therefore
-the same region counts and mean PRS as the single-batch calculation. The main difference is
-the maximum number of simulated rows held in memory at once.
+the same region classifications. The mean PRS is numerically equivalent, although its final
+floating-point value can differ at machine-roundoff scale because partial sums are grouped
+by batch. The main practical difference is the maximum number of simulated rows held in
+memory at once.
 
 Operating-characteristic curves expose the same `batch_size` option and forward it to
 each curve-point simulation.
