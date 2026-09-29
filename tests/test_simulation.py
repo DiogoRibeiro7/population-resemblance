@@ -125,3 +125,70 @@ def test_invalid_seed_raises() -> None:
             simulations=1_000,
             seed=1.5,  # type: ignore[arg-type]
         )
+
+
+def test_chunked_simulation_matches_single_batch_exactly() -> None:
+    """Chunking must preserve seeded Monte Carlo results exactly."""
+    full = simulate_region_probabilities(
+        current=[0.40, 0.35, 0.25],
+        reference=[0.50, 0.30, 0.20],
+        sample_size=250,
+        simulations=2_003,
+        seed=1234,
+    )
+    chunked = simulate_region_probabilities(
+        current=[0.40, 0.35, 0.25],
+        reference=[0.50, 0.30, 0.20],
+        sample_size=250,
+        simulations=2_003,
+        seed=1234,
+        batch_size=257,
+    )
+
+    assert chunked == full
+
+
+def test_batch_size_larger_than_simulation_count_matches_default() -> None:
+    """Oversized batches should behave like the existing single-batch path."""
+    full = simulate_region_probabilities(
+        current=[0.5, 0.3, 0.2],
+        reference=[0.5, 0.3, 0.2],
+        sample_size=100,
+        simulations=250,
+        seed=44,
+    )
+    oversized = simulate_region_probabilities(
+        current=[0.5, 0.3, 0.2],
+        reference=[0.5, 0.3, 0.2],
+        sample_size=100,
+        simulations=250,
+        seed=44,
+        batch_size=1_000,
+    )
+
+    assert oversized == full
+
+
+@pytest.mark.parametrize("batch_size", [0, -1])
+def test_invalid_batch_size_raises(batch_size: int) -> None:
+    """Monte Carlo batch size must be positive when supplied."""
+    with pytest.raises(ValueError):
+        simulate_region_probabilities(
+            current=[0.5, 0.5],
+            reference=[0.5, 0.5],
+            sample_size=100,
+            simulations=100,
+            batch_size=batch_size,
+        )
+
+
+def test_boolean_batch_size_raises() -> None:
+    """Boolean batch sizes must not be accepted as integers."""
+    with pytest.raises(TypeError):
+        simulate_region_probabilities(
+            current=[0.5, 0.5],
+            reference=[0.5, 0.5],
+            sample_size=100,
+            simulations=100,
+            batch_size=True,  # type: ignore[arg-type]
+        )
