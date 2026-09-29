@@ -44,6 +44,9 @@ jobs:
           poetry run python examples/reproduce_table3.py
           poetry run python examples/reproduce_deviation_grid.py --simulations 200
 
+      - name: Benchmark chunked Monte Carlo smoke test
+        run: poetry run python examples/benchmark_chunked_simulation.py --simulations 1000 --batch-size 100
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 
