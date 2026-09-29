@@ -57,6 +57,9 @@ jobs:
       - name: Validate two-sample research algebra
         run: poetry run python research/validate_two_sample_asymptotics.py
 
+      - name: Validate two-sample critical-value research
+        run: poetry run python research/validate_two_sample_critical_values.py
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 
