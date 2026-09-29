@@ -50,6 +50,20 @@ jobs:
       - name: Documentation
         run: poetry run mkdocs build --strict
 
+      - name: Build release distributions
+        run: poetry build
+
+      - name: Validate release distributions
+        run: pipx run --spec twine==7.0.0 twine check dist/*
+
+      - name: Smoke-test built wheel
+        shell: bash
+        run: |
+          python -m venv .ci-release-venv
+          .ci-release-venv/bin/python -m pip install --upgrade pip
+          .ci-release-venv/bin/python -m pip install dist/*.whl
+          .ci-release-venv/bin/python -c "import population_resemblance"
+
   compatibility:
     name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
