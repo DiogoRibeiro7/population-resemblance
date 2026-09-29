@@ -45,6 +45,7 @@ nav:
   - Theory: theory.md
   - Simulation: simulation.md
   - Reproducibility: reproducibility.md
+  - Two-sample research: two-sample-research.md
   - API reference: api.md
   - Public API policy: public-api.md
   - Development: development.md
