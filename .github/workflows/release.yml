@@ -1,0 +1,99 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and validate distributions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout release
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: pipx install poetry==2.5.1
+
+      - name: Validate project metadata and lockfile
+        run: poetry check --lock
+
+      - name: Verify release tag matches package version
+        shell: bash
+        run: |
+          package_version="$(poetry version --short)"
+          tag_version="${GITHUB_REF_NAME#v}"
+          if [ "$package_version" != "$tag_version" ]; then
+            echo "Release tag $GITHUB_REF_NAME does not match package version $package_version."
+            exit 1
+          fi
+
+      - name: Build source and wheel distributions
+        run: poetry build
+
+      - name: Validate built distributions
+        run: pipx run --spec twine==7.0.0 twine check dist/*
+
+      - name: Smoke-test built wheel
+        shell: bash
+        run: |
+          python -m venv .release-venv
+          .release-venv/bin/python -m pip install --upgrade pip
+          .release-venv/bin/python -m pip install dist/*.whl
+          .release-venv/bin/python -c "import population_resemblance"
+
+      - name: Upload distribution artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: python-distributions
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish distributions to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/population-resemblance
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v8
+        with:
+          name: python-distributions
+          path: dist/
+
+      - name: Publish to PyPI using Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@v1.14.2
+
+  attach:
+    name: Attach distributions to GitHub Release
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v8
+        with:
+          name: python-distributions
+          path: dist/
+
+      - name: Attach distributions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$RELEASE_TAG" dist/* --clobber
