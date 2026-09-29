@@ -9,14 +9,20 @@ The runtime dependencies are deliberately small:
 - NumPy
 - SciPy
 
-## Install from source
+## Install
 
-Clone the repository and install with Poetry:
+For the public package release:
+
+```bash
+python -m pip install population-resemblance
+```
+
+For development from source:
 
 ```bash
 git clone https://github.com/DiogoRibeiro7/population-resemblance.git
 cd population-resemblance
-poetry install
+poetry install --with docs
 ```
 
 Run the test suite:
