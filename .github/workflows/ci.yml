@@ -54,6 +54,9 @@ jobs:
           poetry run python examples/workflow_calibration_and_comparison.py
           poetry run python examples/workflow_export.py
 
+      - name: Validate two-sample research algebra
+        run: poetry run python research/validate_two_sample_asymptotics.py
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 
