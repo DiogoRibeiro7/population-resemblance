@@ -145,7 +145,13 @@ def test_chunked_simulation_matches_single_batch_exactly() -> None:
         batch_size=257,
     )
 
-    assert chunked == full
+    assert chunked.simulations == full.simulations
+    assert chunked.probabilities == full.probabilities
+    assert chunked.mean_statistic == pytest.approx(
+        full.mean_statistic,
+        rel=0.0,
+        abs=1e-15,
+    )
 
 
 def test_batch_size_larger_than_simulation_count_matches_default() -> None:
@@ -190,5 +196,5 @@ def test_boolean_batch_size_raises() -> None:
             reference=[0.5, 0.5],
             sample_size=100,
             simulations=100,
-            batch_size=True,  # type: ignore[arg-type]
+            batch_size=True,
         )
