@@ -38,6 +38,12 @@ jobs:
       - name: Tests
         run: poetry run pytest --cov=population_resemblance --cov-report=term-missing
 
+      - name: Reproduce published calibration examples
+        run: |
+          poetry run python examples/reproduce_table2.py
+          poetry run python examples/reproduce_table3.py
+          poetry run python examples/reproduce_deviation_grid.py --simulations 200
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 

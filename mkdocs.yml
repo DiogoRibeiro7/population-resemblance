@@ -43,6 +43,7 @@ nav:
   - User guide: user-guide.md
   - Theory: theory.md
   - Simulation: simulation.md
+  - Reproducibility: reproducibility.md
   - API reference: api.md
   - Public API policy: public-api.md
   - Development: development.md
