@@ -101,3 +101,24 @@ def test_invalid_delta_multiples_raise(multiples: list[float]) -> None:
             simulations=100,
             seed=1,
         )
+
+
+def test_operating_curve_forwards_batch_size_without_changing_results() -> None:
+    """Operating curves should preserve results when Monte Carlo is chunked."""
+    full = simulate_operating_characteristic_curve(
+        reference=[0.2] * 5,
+        sample_size=50,
+        delta_multiples=[0.0, 1.0, 2.0],
+        simulations=1_003,
+        seed=91,
+    )
+    chunked = simulate_operating_characteristic_curve(
+        reference=[0.2] * 5,
+        sample_size=50,
+        delta_multiples=[0.0, 1.0, 2.0],
+        simulations=1_003,
+        seed=91,
+        batch_size=127,
+    )
+
+    assert chunked == full
