@@ -328,26 +328,35 @@ def main() -> None:
                 f"{result.homogeneity_rejection_probability:.6f}"
             )
 
-            if multiple == 0.0 and scenario.name != "sparse":
-                if abs(result.homogeneity_rejection_probability - 0.05) > 0.02:
-                    raise AssertionError(
-                        "homogeneity benchmark is unexpectedly miscalibrated "
-                        f"for {scenario.name}"
-                    )
+            if (
+                multiple == 0.0
+                and scenario.name != "sparse"
+                and abs(result.homogeneity_rejection_probability - 0.05) > 0.02
+            ):
+                raise AssertionError(
+                    "homogeneity benchmark is unexpectedly miscalibrated "
+                    f"for {scenario.name}"
+                )
 
-            if multiple == 1.0 and scenario.name != "sparse":
-                if abs(result.r3_probability - 0.05) > 0.03:
-                    raise AssertionError(
-                        "plug-in upper-boundary calibration is unexpectedly poor "
-                        f"for {scenario.name}"
-                    )
+            if (
+                multiple == 1.0
+                and scenario.name != "sparse"
+                and abs(result.r3_probability - 0.05) > 0.03
+            ):
+                raise AssertionError(
+                    "plug-in upper-boundary calibration is unexpectedly poor "
+                    f"for {scenario.name}"
+                )
 
-            if multiple == 2.0 and scenario.name != "sparse":
-                if abs(result.r1_probability - 0.10) > 0.05:
-                    raise AssertionError(
-                        "plug-in lower-boundary calibration is unexpectedly poor "
-                        f"for {scenario.name}"
-                    )
+            if (
+                multiple == 2.0
+                and scenario.name != "sparse"
+                and abs(result.r1_probability - 0.10) > 0.05
+            ):
+                raise AssertionError(
+                    "plug-in lower-boundary calibration is unexpectedly poor "
+                    f"for {scenario.name}"
+                )
 
 
 if __name__ == "__main__":
