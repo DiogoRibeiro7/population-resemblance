@@ -50,6 +50,7 @@ nav:
       - Independent asymptotics: two-sample-asymptotics.md
       - Critical values: two-sample-critical-values.md
       - Finite-sample calibration: two-sample-calibration.md
+      - Dependence and overlap: two-sample-dependence.md
   - API reference: api.md
   - Public API policy: public-api.md
   - Development: development.md
