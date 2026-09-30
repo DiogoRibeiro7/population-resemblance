@@ -74,6 +74,9 @@ jobs:
       - name: Benchmark chunked Monte Carlo smoke test
         run: poetry run python examples/benchmark_chunked_simulation.py --simulations 1000 --batch-size 100
 
+      - name: Run benchmark-suite smoke test
+        run: poetry run python benchmarks/benchmark_suite.py --smoke
+
       - name: Run end-to-end examples
         run: |
           poetry run python examples/workflow_single_and_named.py
