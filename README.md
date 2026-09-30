@@ -19,7 +19,7 @@ other discrete populations.
 The core statistic is
 
 $$
-\operatorname{PRS} = \sum_{j=1}^{B} \frac{(\hat p_j - p_{0j})^2}{p_{0j}}.
+\mathrm{PRS} = \sum_{j=1}^{B} \frac{(\hat p_j - p_{0j})^2}{p_{0j}}.
 $$
 
 The package implements the $\delta$-resemblance framework of Potgieter et al., including

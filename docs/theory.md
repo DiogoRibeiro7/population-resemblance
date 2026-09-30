@@ -19,7 +19,7 @@ be the empirical current distribution.
 The Population Resemblance Statistic is
 
 \[
-\operatorname{PRS}
+\mathrm{PRS}
 =
 \sum_{j=1}^{B}
 \frac{(\hat p_j-p_{0j})^2}{p_{0j}}.
@@ -28,7 +28,7 @@ The Population Resemblance Statistic is
 The sample-size-scaled statistic is
 
 \[
-Q_n=n\operatorname{PRS}.
+Q_n=n\mathrm{PRS}.
 \]
 
 Under local alternatives, \(Q_n\) is asymptotically non-central chi-square with \(B-1\) degrees of freedom.
@@ -99,17 +99,17 @@ The package implements two nested resemblance hypotheses with tolerances \(\delt
 The PRS decision regions are
 
 \[
-R_1=\{\operatorname{PRS}\le \tau_1\},
+R_1=\{\mathrm{PRS}\le \tau_1\},
 \]
 
 \[
-R_2=\{\tau_1<\operatorname{PRS}\le\tau_2\},
+R_2=\{\tau_1<\mathrm{PRS}\le\tau_2\},
 \]
 
 and
 
 \[
-R_3=\{\operatorname{PRS}>\tau_2\}.
+R_3=\{\mathrm{PRS}>\tau_2\}.
 \]
 
 The critical values are
