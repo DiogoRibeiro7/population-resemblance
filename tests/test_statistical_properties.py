@@ -220,20 +220,22 @@ def test_two_sample_statistic_matches_pearson_identity_for_generated_tables() ->
 
 
 @pytest.mark.parametrize(
-    "invalid",
+    ("observed", "reference"),
     [
-        [0.6, 0.6],
-        [0.8, -0.2, 0.4],
-        [1.0],
-        [0.0, 1.0],
+        ([0.6, 0.6], [0.5, 0.5]),
+        ([0.8, -0.2, 0.4], [0.4, 0.3, 0.3]),
+        ([1.0], [1.0]),
+        ([0.5, 0.5], [0.0, 1.0]),
+        ([float("nan"), 1.0], [0.5, 0.5]),
     ],
 )
 def test_invalid_probability_vectors_are_rejected(
-    invalid: list[float],
+    observed: list[float],
+    reference: list[float],
 ) -> None:
     """Generated-input coverage should include invalid simplex inputs."""
     with pytest.raises((TypeError, ValueError)):
         population_resemblance_statistic(
-            observed=invalid,
-            reference=[0.5, 0.5],
+            observed=observed,
+            reference=reference,
         )
