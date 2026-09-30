@@ -5,8 +5,12 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "src/**"
+      - "README.md"
+      - "tests/test_documentation.py"
       - "mkdocs.yml"
       - "pyproject.toml"
+      - "poetry.lock"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
 
@@ -32,10 +36,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install Poetry
-        run: pipx install poetry
+        run: pipx install poetry==2.5.1
 
       - name: Install dependencies
         run: poetry install --with docs
+
+      - name: Execute README and documentation examples
+        run: poetry run pytest tests/test_documentation.py -v
 
       - name: Build documentation
         run: poetry run mkdocs build --strict --site-dir site

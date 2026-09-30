@@ -6,6 +6,13 @@ Contributions are welcome when they preserve the statistical scope and engineeri
 
 The project supports Python 3.12, 3.13, and 3.14 and uses Poetry. Python 3.12 remains the canonical development version for linting, typing, and documentation checks.
 
+Use **Poetry 2.5.x**, with **2.5.1** matching CI. After
+[installing pipx](https://pipx.pypa.io/stable/installation/), install the pinned tool:
+
+```bash
+pipx install poetry==2.5.1
+```
+
 ```bash
 git clone https://github.com/DiogoRibeiro7/population-resemblance.git
 cd population-resemblance
@@ -90,6 +97,12 @@ Prefer focused pull requests. Avoid combining statistical changes, API redesigns
 Documentation uses MkDocs Material and is built strictly in CI.
 
 For public APIs, prefer docstrings that are suitable for mkdocstrings rather than duplicating signatures manually in Markdown.
+
+Python examples in the README and documentation run as part of pytest. A following
+`text` fence can record expected standard output. See the
+[documentation check conventions](https://diogoribeiro7.github.io/population-resemblance/development/#documentation)
+before adding examples, and run `poetry run pytest tests/test_documentation.py -v` to check
+them locally.
 
 ## Reporting problems
 

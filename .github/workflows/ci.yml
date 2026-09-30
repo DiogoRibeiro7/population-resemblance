@@ -36,7 +36,10 @@ jobs:
         run: poetry run mypy src tests
 
       - name: Tests
-        run: poetry run pytest --cov=population_resemblance --cov-report=term-missing
+        run: poetry run pytest --ignore=tests/test_documentation.py --cov=population_resemblance --cov-report=term-missing
+
+      - name: Execute README and documentation examples
+        run: poetry run pytest tests/test_documentation.py -v
 
       - name: Reproduce published calibration examples
         run: |
