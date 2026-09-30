@@ -39,6 +39,22 @@ The project follows semantic-versioning expectations described in the
 - memory-bounded chunked simulation
 - source-paper reproducibility scripts
 
+### Experimental two-sample research
+
+- independent two-sample asymptotic derivation
+- conditional least-favourable critical-value derivation
+- finite-sample plug-in calibration study
+- overlap/dependence covariance analysis
+- sparse-category eligibility policy
+- experimental independent two-sample API kept outside the stable package-root API
+
+### Verification and performance
+
+- deterministic statistical property tests
+- executable documentation examples
+- reproducible numerical benchmark suite
+- memory-bounded Monte Carlo benchmarks
+
 ### Engineering
 
 - typed Python API with PEP 561 marker
