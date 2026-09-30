@@ -13,7 +13,7 @@ def _project_version() -> str:
     """Read the package version from pyproject.toml."""
     with (ROOT / "pyproject.toml").open("rb") as handle:
         data = tomllib.load(handle)
-    return str(data["tool"]["poetry"]["version"])
+    return str(data["project"]["version"])
 
 
 def _citation_version() -> str:
