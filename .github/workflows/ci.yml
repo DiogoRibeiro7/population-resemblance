@@ -93,6 +93,9 @@ jobs:
       - name: Validate two-sample overlap correction
         run: poetry run python research/validate_two_sample_overlap.py
 
+      - name: Validate sparse-category policy
+        run: poetry run python research/validate_sparse_category_policy.py
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 
