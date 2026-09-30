@@ -34,7 +34,7 @@ Assume first that the two samples are independent.
 If both samples arise from a common probability vector \(r\), then
 
 \[
-\operatorname{Var}(\widehat p-\widehat q)
+\mathrm{Var}(\widehat p-\widehat q)
 =
 \left(\frac{1}{n}+\frac{1}{m}\right)
 \Sigma(r),
@@ -43,7 +43,7 @@ If both samples arise from a common probability vector \(r\), then
 where
 
 \[
-\Sigma(r)=\operatorname{diag}(r)-rr^\top.
+\Sigma(r)=\mathrm{diag}(r)-rr^\top.
 \]
 
 Define the effective sample size
@@ -141,13 +141,13 @@ Independence is only the first research case.
 In general,
 
 \[
-\operatorname{Var}(\widehat p-\widehat q)
+\mathrm{Var}(\widehat p-\widehat q)
 =
-\operatorname{Var}(\widehat p)
+\mathrm{Var}(\widehat p)
 +
-\operatorname{Var}(\widehat q)
+\mathrm{Var}(\widehat q)
 -
-2\operatorname{Cov}(\widehat p,\widehat q).
+2\mathrm{Cov}(\widehat p,\widehat q).
 \]
 
 Overlapping individuals, repeated measurements, rolling windows, or nested samples make the
