@@ -55,6 +55,7 @@ nav:
   - Experimental API: experimental-two-sample.md
   - API reference: api.md
   - Public API policy: public-api.md
+  - Performance: performance.md
   - Development: development.md
   - Releases: releases.md
 
