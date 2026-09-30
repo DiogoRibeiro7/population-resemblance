@@ -29,15 +29,15 @@ For the difference,
 the covariance is
 
 \[
-\operatorname{Var}(\widehat d)
+\mathrm{Var}(\widehat d)
 =
-\operatorname{Var}(\widehat p)
+\mathrm{Var}(\widehat p)
 +
-\operatorname{Var}(\widehat q)
+\mathrm{Var}(\widehat q)
 -
-\operatorname{Cov}(\widehat p,\widehat q)
+\mathrm{Cov}(\widehat p,\widehat q)
 -
-\operatorname{Cov}(\widehat q,\widehat p).
+\mathrm{Cov}(\widehat q,\widehat p).
 \]
 
 Under independence, the cross-covariance terms vanish. Under overlap or repeated sampling,
@@ -65,23 +65,23 @@ Consider a simple case in which:
 Let
 
 \[
-\Sigma(r)=\operatorname{diag}(r)-rr^\top.
+\Sigma(r)=\mathrm{diag}(r)-rr^\top.
 \]
 
 Then
 
 \[
-\operatorname{Var}(\widehat p)=\frac{1}{n}\Sigma(r),
+\mathrm{Var}(\widehat p)=\frac{1}{n}\Sigma(r),
 \]
 
 \[
-\operatorname{Var}(\widehat q)=\frac{1}{m}\Sigma(r),
+\mathrm{Var}(\widehat q)=\frac{1}{m}\Sigma(r),
 \]
 
 and the shared observations give
 
 \[
-\operatorname{Cov}(\widehat p,\widehat q)
+\mathrm{Cov}(\widehat p,\widehat q)
 =
 \frac{k}{nm}\Sigma(r).
 \]
@@ -89,7 +89,7 @@ and the shared observations give
 Therefore
 
 \[
-\operatorname{Var}(\widehat p-\widehat q)
+\mathrm{Var}(\widehat p-\widehat q)
 =
 \left(
 \frac{1}{n}
@@ -141,7 +141,7 @@ n_{\mathrm{eff}}^{(n)}
 If \(n=m=k\), the two empirical distributions are identical and
 
 \[
-\operatorname{Var}(\widehat p-\widehat q)=0.
+\mathrm{Var}(\widehat p-\widehat q)=0.
 \]
 
 The comparison is then degenerate and there is no non-trivial chi-square test.
@@ -183,7 +183,7 @@ be the \(B\times B\) joint transition-probability matrix, with marginals \(p\) a
 For one paired observation, define one-hot vectors \(U\) and \(V\). Then
 
 \[
-\operatorname{Cov}(U,V)
+\mathrm{Cov}(U,V)
 =
 \Pi-pq^\top.
 \]
@@ -191,7 +191,7 @@ For one paired observation, define one-hot vectors \(U\) and \(V\). Then
 For \(N\) independent pairs,
 
 \[
-\operatorname{Cov}(\widehat p,\widehat q)
+\mathrm{Cov}(\widehat p,\widehat q)
 =
 \frac{1}{N}
 (\Pi-pq^\top).
@@ -200,7 +200,7 @@ For \(N\) independent pairs,
 Hence
 
 \[
-\operatorname{Var}(\widehat p-\widehat q)
+\mathrm{Var}(\widehat p-\widehat q)
 =
 \frac{1}{N}
 \left[
@@ -225,7 +225,7 @@ For arbitrary dependence, define
 \[
 V
 =
-\operatorname{Var}(\widehat p-\widehat q).
+\mathrm{Var}(\widehat p-\widehat q).
 \]
 
 Because the category differences sum to zero, \(V\) is singular in the full
@@ -369,7 +369,7 @@ Suppose only two marginal count vectors are supplied.
 Those counts determine \(\widehat p\) and \(\widehat q\), but they do not determine
 
 \[
-\operatorname{Cov}(\widehat p,\widehat q).
+\mathrm{Cov}(\widehat p,\widehat q).
 \]
 
 Many different joint dependence structures can have the same marginals.
