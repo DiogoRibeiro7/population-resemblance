@@ -17,7 +17,10 @@ The initial public release establishes a tested implementation of categorical po
 - diagnostics and calibration sensitivity;
 - temporal monitoring;
 - reusable monitor objects;
-- serialization helpers.
+- serialization helpers;
+- an experimental independent two-sample API, explicitly outside the stable root API;
+- deterministic statistical property tests;
+- reproducible numerical benchmarks.
 
 The complete change list is maintained in [CHANGELOG.md](https://github.com/DiogoRibeiro7/population-resemblance/blob/main/CHANGELOG.md).
 
