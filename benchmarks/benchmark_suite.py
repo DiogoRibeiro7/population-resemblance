@@ -3,11 +3,9 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable
 from dataclasses import dataclass
 from time import perf_counter
-from typing import Callable
-
-import numpy as np
 
 from population_resemblance import (
     discrete_ks_test_counts,
