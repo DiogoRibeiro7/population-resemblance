@@ -63,6 +63,9 @@ jobs:
       - name: Simulate two-sample finite-sample calibration
         run: poetry run python research/simulate_two_sample_calibration.py --simulations 5000
 
+      - name: Validate two-sample overlap correction
+        run: poetry run python research/validate_two_sample_overlap.py
+
       - name: Documentation
         run: poetry run mkdocs build --strict
 
