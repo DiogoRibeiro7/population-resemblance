@@ -42,7 +42,7 @@ Inspect category contributions, calibration sensitivity, operating-characteristi
 The core statistic is
 
 \[
-\operatorname{PRS}
+\mathrm{PRS}
 =
 \sum_{j=1}^{B}
 \frac{(\hat p_j-p_{0j})^2}{p_{0j}},
