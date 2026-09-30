@@ -18,6 +18,9 @@ def population_stability_index(
 
     This follows the formulation used in the source paper, including its
     convention of omitting categories whose observed probability is zero.
+    Reference probabilities must be strictly positive. No smoothing is applied,
+    so zero-count results can differ from PSI implementations that smooth
+    probabilities or return infinity for a zero observed probability.
     """
     observed_array = _as_probability_vector(observed, name="observed")
     reference_array = _as_probability_vector(reference, name="reference")

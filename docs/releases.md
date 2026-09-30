@@ -4,6 +4,9 @@
 
 Status: release candidate.
 
+Version 0.1.0 is being prepared for its first public publication and is not yet available
+on PyPI. Use the [source installation](getting-started.md#install) in the meantime.
+
 The initial public release establishes a tested implementation of categorical population resemblance monitoring with:
 
 - the Population Resemblance Statistic;

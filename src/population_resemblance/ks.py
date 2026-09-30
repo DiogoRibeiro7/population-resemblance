@@ -35,6 +35,9 @@ def discrete_ks_statistic(
 
     The statistic is the maximum absolute difference between the empirical
     cumulative distribution and the reference cumulative distribution.
+    Cumulative probabilities use the supplied category order. Reordering both
+    vectors together can change the result, so categories should have a
+    meaningful fixed order; nominal labels do not define a unique KS statistic.
 
     Parameters
     ----------
@@ -71,6 +74,8 @@ def discrete_ks_test_counts(
     The null distribution is simulated from the multinomial reference because
     the discrete KS statistic is not distribution-free with respect to the
     underlying categorical probabilities.
+    Counts and reference probabilities must use the same meaningful category
+    order. Changing that order can change the statistic and calibrated p-value.
 
     Parameters
     ----------

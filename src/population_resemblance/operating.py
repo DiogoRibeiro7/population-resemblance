@@ -120,6 +120,9 @@ def simulate_operating_characteristic_curve(
     delta_multiples:
         Shift magnitudes expressed as multiples of delta. If omitted, the
         source paper's 30-point grid from zero to (3M + 2) delta is used.
+        This grid is not clipped to the probability domain. Supply explicit
+        feasible multiples when its shifts would make any category probability
+        negative or greater than one.
     simulations:
         Monte Carlo samples per curve point.
     seed:
@@ -142,6 +145,15 @@ def simulate_operating_characteristic_curve(
     -------
     OperatingCharacteristicCurve
         Ordered simulation results across the requested deviation magnitudes.
+
+    Raises
+    ------
+    ValueError
+        If a requested shift produces invalid category probabilities, or the
+        calibration or simulation parameters are invalid. For example, the
+        default grid is infeasible for a uniform five-category reference with
+        sample size 50 and the default calibration; multiples from 0 to 5 are
+        feasible for that configuration.
     """
     reference_array = np.asarray(reference, dtype=np.float64)
 
