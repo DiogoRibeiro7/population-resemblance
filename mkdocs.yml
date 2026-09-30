@@ -51,6 +51,7 @@ nav:
       - Critical values: two-sample-critical-values.md
       - Finite-sample calibration: two-sample-calibration.md
       - Dependence and overlap: two-sample-dependence.md
+      - Sparse-category policy: two-sample-sparse-policy.md
   - API reference: api.md
   - Public API policy: public-api.md
   - Development: development.md
