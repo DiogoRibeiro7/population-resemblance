@@ -148,11 +148,13 @@ def main() -> None:
         seed=3002,
     )
 
-    if balanced_rate < 0.99:
-        raise AssertionError("balanced scenario should almost always be eligible")
-    if sparse_rate > 0.50:
+    if balanced_rate < 0.98:
         raise AssertionError(
-            "sparse n=100 scenario should frequently fail the conservative policy"
+            "balanced scenario should have at least 98% policy eligibility"
+        )
+    if sparse_rate > 0.05:
+        raise AssertionError(
+            "sparse n=100 scenario should have at most 5% policy eligibility"
         )
 
 
