@@ -15,9 +15,9 @@ one-sample method.
 For a fixed number of categories \(B\), let
 
 \[
-X_n \sim \operatorname{Multinomial}(n,p_n),
+X_n \sim \mathrm{Multinomial}(n,p_n),
 \qquad
-Y_m \sim \operatorname{Multinomial}(m,q_m),
+Y_m \sim \mathrm{Multinomial}(m,q_m),
 \]
 
 with the two samples independent. Define empirical proportions
@@ -109,7 +109,7 @@ where
 \[
 \Sigma(r)=D(r)-rr^\top,
 \qquad
-D(r)=\operatorname{diag}(r).
+D(r)=\mathrm{diag}(r).
 \]
 
 Independence of the samples and
@@ -155,7 +155,7 @@ It is the orthogonal projector onto the \((B-1)\)-dimensional subspace orthogona
 \(u\). Hence
 
 \[
-\operatorname{rank}\{\Sigma(r)\}=B-1.
+\mathrm{rank}\{\Sigma(r)\}=B-1.
 \]
 
 This is the same loss of one degree of freedom caused by the simplex constraint in the
