@@ -1,14 +1,13 @@
-[tool.poetry]
-requires-poetry = ">=2.5,<2.6"
+[project]
 name = "population-resemblance"
 version = "0.1.0"
 description = "Statistically principled monitoring of categorical population and distribution shifts."
-authors = ["Diogo Ribeiro"]
+authors = [
+  { name = "Diogo Ribeiro" },
+]
 license = "MIT"
 readme = "README.md"
-homepage = "https://diogoribeiro7.github.io/population-resemblance/"
-repository = "https://github.com/DiogoRibeiro7/population-resemblance"
-documentation = "https://diogoribeiro7.github.io/population-resemblance/"
+requires-python = ">=3.12,<3.15"
 keywords = [
   "population-drift",
   "distribution-shift",
@@ -21,7 +20,6 @@ classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.12",
@@ -30,6 +28,14 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Information Analysis",
   "Typing :: Typed",
 ]
+
+[project.urls]
+Homepage = "https://diogoribeiro7.github.io/population-resemblance/"
+Repository = "https://github.com/DiogoRibeiro7/population-resemblance"
+Documentation = "https://diogoribeiro7.github.io/population-resemblance/"
+
+[tool.poetry]
+requires-poetry = ">=2.5,<2.6"
 packages = [{ include = "population_resemblance", from = "src" }]
 
 [tool.poetry.dependencies]
@@ -51,7 +57,7 @@ mkdocs-material = "^9.5"
 mkdocstrings = { version = "^0.26", extras = ["python"] }
 
 [build-system]
-requires = ["poetry-core>=1.9.0"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
