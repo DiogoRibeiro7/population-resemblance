@@ -27,3 +27,17 @@ This checklist is used to prepare a public package release.
 - [ ] a GitHub Release is created with a tag matching the package version, normally `vX.Y.Z`.
 - [ ] the release workflow publishes the same wheel and sdist that were validated.
 - [ ] the GitHub Release contains the built distribution artifacts.
+
+
+## Phase 2 release readiness
+
+- [x] package metadata migrated to PEP 621.
+- [x] runtime dependencies migrated to PEP 621.
+- [x] Node 24 compatible GitHub Actions majors are in use.
+- [x] statistical property tests are in CI.
+- [x] benchmark smoke test is in CI.
+- [x] experimental two-sample API is isolated from the stable root API.
+- [x] main CI is green before final release preparation.
+- [ ] actual publication date is added to `CITATION.cff`.
+- [ ] PyPI Trusted Publisher is confirmed.
+- [ ] GitHub Release `v0.1.0` is published by the repository owner.
