@@ -20,6 +20,18 @@ from population_resemblance import PopulationMonitor
 
 Names listed in `population_resemblance.__all__` are intentional public interfaces. They include functions, result objects, monitor classes, diagnostics, simulation helpers, and serialization utilities.
 
+## Experimental namespace
+
+The `population_resemblance.experimental` namespace is public enough to be used for
+research and evaluation, but it is **not** part of the stable compatibility boundary defined
+by the package-root `__all__`.
+
+Experimental functions and result objects may change before promotion to the stable API.
+They should therefore be imported explicitly from `population_resemblance.experimental`.
+
+Promotion of an experimental symbol to the package root requires a separate compatibility
+review and an intentional update to the stable public API snapshot.
+
 ## Internal implementation details
 
 Names beginning with an underscore are internal unless explicitly documented otherwise.
