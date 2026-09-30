@@ -29,6 +29,30 @@ jobs:
       - name: Validate project metadata
         run: poetry check --lock
 
+      - name: Check PEP 621 metadata
+        run: |
+          python - <<'PY'
+          import tomllib
+          from pathlib import Path
+
+          data = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))
+          project = data["project"]
+          required = {
+              "name",
+              "version",
+              "description",
+              "authors",
+              "license",
+              "readme",
+              "requires-python",
+              "keywords",
+              "classifiers",
+          }
+          missing = required.difference(project)
+          if missing:
+              raise SystemExit(f"missing PEP 621 metadata: {sorted(missing)}")
+          PY
+
       - name: Ruff
         run: poetry run ruff check .
 
