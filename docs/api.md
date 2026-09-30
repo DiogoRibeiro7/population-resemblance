@@ -103,3 +103,10 @@ The public API is documented directly from the package docstrings.
 ::: population_resemblance.serialization
     options:
       members_order: source
+
+
+## Experimental two-sample API
+
+::: population_resemblance.experimental.two_sample
+    options:
+      members_order: source
