@@ -123,7 +123,7 @@ def main() -> None:
     nested_effective = (
         nested_n
         * nested_m
-        / (nested_m - nested_n)
+        / (nested_n + nested_m - 2 * nested_overlap)
     )
 
     if not np.isclose(nested_effective, 150.0):
