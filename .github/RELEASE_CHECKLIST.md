@@ -4,29 +4,29 @@ This checklist is used to prepare a public package release.
 
 ## Version consistency
 
-- [ ] `pyproject.toml` contains the intended release version.
-- [ ] `CITATION.cff` contains the same version.
-- [ ] `CHANGELOG.md` contains release notes for that version.
-- [ ] `docs/releases.md` contains matching release notes.
+- [x] `pyproject.toml` contains the intended release version.
+- [x] `CITATION.cff` contains the same version.
+- [x] `CHANGELOG.md` contains release notes for that version.
+- [x] `docs/releases.md` contains matching release notes.
 
 ## Quality gates
 
-- [ ] Ruff passes.
-- [ ] mypy passes.
-- [ ] the full test suite passes on Python 3.12, 3.13, and 3.14.
-- [ ] documentation builds with `mkdocs build --strict`.
-- [ ] source-paper reproducibility smoke checks pass.
-- [ ] the package builds successfully.
-- [ ] Twine validates the built distributions.
-- [ ] the built wheel installs and imports in a clean virtual environment.
+- [x] Ruff passes.
+- [x] mypy passes.
+- [x] the full test suite passes on Python 3.12, 3.13, and 3.14.
+- [x] documentation builds with `mkdocs build --strict`.
+- [x] source-paper reproducibility smoke checks pass.
+- [x] the package builds successfully.
+- [x] Twine validates the built distributions.
+- [x] the built wheel installs and imports in a clean virtual environment.
 
 ## Publication
 
-- [ ] the PyPI Trusted Publisher is configured for `.github/workflows/release.yml`.
-- [ ] the GitHub environment is named `pypi`.
-- [ ] a GitHub Release is created with a tag matching the package version, normally `vX.Y.Z`.
-- [ ] the release workflow publishes the same wheel and sdist that were validated.
-- [ ] the GitHub Release contains the built distribution artifacts.
+- [x] the PyPI Trusted Publisher is configured for `.github/workflows/release.yml`.
+- [x] the GitHub environment is named `pypi`.
+- [x] a GitHub Release is created with a tag matching the package version, normally `vX.Y.Z`.
+- [x] the release workflow publishes the same wheel and sdist that were validated.
+- [x] the GitHub Release contains the built distribution artifacts.
 
 
 ## Phase 2 release readiness
@@ -38,6 +38,6 @@ This checklist is used to prepare a public package release.
 - [x] benchmark smoke test is in CI.
 - [x] experimental two-sample API is isolated from the stable root API.
 - [x] main CI is green before final release preparation.
-- [ ] actual publication date is added to `CITATION.cff`.
-- [ ] PyPI Trusted Publisher is confirmed.
-- [ ] GitHub Release `v0.1.0` is published by the repository owner.
+- [x] actual publication date is added to `CITATION.cff`.
+- [x] PyPI Trusted Publisher is confirmed.
+- [x] GitHub Release `v0.1.0` is published by the repository owner.
