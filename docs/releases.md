@@ -2,10 +2,15 @@
 
 ## 0.1.0
 
-Status: release candidate.
+Status: released on 2026-09-30.
 
-Version 0.1.0 is being prepared for its first public publication and is not yet available
-on PyPI. Use the [source installation](getting-started.md#install) in the meantime.
+Version 0.1.0 is available from PyPI:
+
+```bash
+python -m pip install population-resemblance
+```
+
+The GitHub Release includes both the wheel and source distribution.
 
 The initial public release establishes a tested implementation of categorical population resemblance monitoring with:
 
@@ -41,16 +46,16 @@ The release workflow:
 
 No PyPI password or API token is stored in the repository.
 
-### PyPI Trusted Publisher setup
+### PyPI Trusted Publisher
 
-Before the first release, configure a Trusted Publisher for the PyPI project with:
+PyPI publication uses Trusted Publishing with:
 
 - owner: `DiogoRibeiro7`;
 - repository: `population-resemblance`;
 - workflow: `release.yml`;
 - environment: `pypi`.
 
-The GitHub environment name and the PyPI publisher configuration must match.
+No repository secret containing a PyPI password or API token is required.
 
 ### Release procedure
 
