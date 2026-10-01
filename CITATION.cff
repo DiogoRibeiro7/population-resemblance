@@ -9,6 +9,7 @@ repository-code: "https://github.com/DiogoRibeiro7/population-resemblance"
 url: "https://diogoribeiro7.github.io/population-resemblance/"
 license: MIT
 version: "0.1.0"
+date-released: "2026-09-30"
 keywords:
   - population drift
   - distribution shift
