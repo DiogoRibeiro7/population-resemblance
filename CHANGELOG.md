@@ -5,7 +5,7 @@ All notable changes to `population-resemblance` are documented here.
 The project follows semantic-versioning expectations described in the
 [public API policy](docs/public-api.md).
 
-## 0.1.0 — initial public release
+## 0.1.0 — 2026-09-30
 
 ### Statistical framework
 
