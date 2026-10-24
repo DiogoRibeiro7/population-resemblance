@@ -43,7 +43,7 @@ requires-poetry = ">=2.5,<2.6"
 packages = [{ include = "population_resemblance", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3"
+pytest = "^9.0"
 pytest-cov = "^5.0"
 mypy = "^1.11"
 scipy-stubs = "*"
